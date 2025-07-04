@@ -28,96 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dtgvMensajes = new DataGridView();
-            CBOtipo = new ComboBox();
-            LBLtipodemensaje = new Label();
-            LBLdestinatario = new Label();
-            LBLcontenido = new Label();
-            TXTdestinatario = new TextBox();
-            TXTcontenido = new TextBox();
+            LBLmensaje = new Label();
+            LBLenviarA = new Label();
+            LBLasunto = new Label();
+            TXTenviarA = new TextBox();
+            TXTasunto = new TextBox();
             BTNenviarguardar = new Button();
-            BTNcargarMensajes = new Button();
-            LBLmensajeria = new Label();
-            BTNlimpiar = new Button();
-            ((System.ComponentModel.ISupportInitialize)dtgvMensajes).BeginInit();
+            LBLgmail = new Label();
+            LBLadjuntarArchivos = new Label();
+            TXTmensaje = new TextBox();
+            BTNinicio = new Button();
+            LBLfiles = new Label();
+            BTNadjuntar = new Button();
             SuspendLayout();
             // 
-            // dtgvMensajes
+            // LBLmensaje
             // 
-            dtgvMensajes.BackgroundColor = SystemColors.MenuBar;
-            dtgvMensajes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dtgvMensajes.GridColor = SystemColors.ControlText;
-            dtgvMensajes.Location = new Point(321, 84);
-            dtgvMensajes.Name = "dtgvMensajes";
-            dtgvMensajes.ReadOnly = true;
-            dtgvMensajes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dtgvMensajes.Size = new Size(431, 96);
-            dtgvMensajes.TabIndex = 0;
+            LBLmensaje.AutoSize = true;
+            LBLmensaje.Font = new Font("Times New Roman", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            LBLmensaje.Location = new Point(169, 119);
+            LBLmensaje.Name = "LBLmensaje";
+            LBLmensaje.Size = new Size(62, 17);
+            LBLmensaje.TabIndex = 6;
+            LBLmensaje.Text = "Mensaje";
             // 
-            // CBOtipo
+            // LBLenviarA
             // 
-            CBOtipo.BackColor = SystemColors.MenuBar;
-            CBOtipo.DropDownStyle = ComboBoxStyle.DropDownList;
-            CBOtipo.FormattingEnabled = true;
-            CBOtipo.Location = new Point(139, 182);
-            CBOtipo.Name = "CBOtipo";
-            CBOtipo.Size = new Size(81, 23);
-            CBOtipo.TabIndex = 1;
-            CBOtipo.SelectedIndexChanged += CBOtipo_SelectedIndexChanged;
+            LBLenviarA.AutoSize = true;
+            LBLenviarA.Font = new Font("Times New Roman", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            LBLenviarA.Location = new Point(169, 45);
+            LBLenviarA.Name = "LBLenviarA";
+            LBLenviarA.Size = new Size(62, 17);
+            LBLenviarA.TabIndex = 7;
+            LBLenviarA.Text = "Enviar a";
             // 
-            // LBLtipodemensaje
+            // LBLasunto
             // 
-            LBLtipodemensaje.AutoSize = true;
-            LBLtipodemensaje.Font = new Font("Times New Roman", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            LBLtipodemensaje.Location = new Point(12, 190);
-            LBLtipodemensaje.Name = "LBLtipodemensaje";
-            LBLtipodemensaje.Size = new Size(112, 17);
-            LBLtipodemensaje.TabIndex = 6;
-            LBLtipodemensaje.Text = "Tipo de Mensaje";
+            LBLasunto.AutoSize = true;
+            LBLasunto.Font = new Font("Times New Roman", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            LBLasunto.Location = new Point(169, 84);
+            LBLasunto.Name = "LBLasunto";
+            LBLasunto.Size = new Size(51, 17);
+            LBLasunto.TabIndex = 8;
+            LBLasunto.Text = "Asunto";
             // 
-            // LBLdestinatario
+            // TXTenviarA
             // 
-            LBLdestinatario.AutoSize = true;
-            LBLdestinatario.Font = new Font("Times New Roman", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            LBLdestinatario.Location = new Point(20, 90);
-            LBLdestinatario.Name = "LBLdestinatario";
-            LBLdestinatario.Size = new Size(86, 17);
-            LBLdestinatario.TabIndex = 7;
-            LBLdestinatario.Text = "Destinatario";
+            TXTenviarA.BackColor = SystemColors.MenuBar;
+            TXTenviarA.Location = new Point(237, 43);
+            TXTenviarA.Name = "TXTenviarA";
+            TXTenviarA.Size = new Size(215, 23);
+            TXTenviarA.TabIndex = 2;
+            TXTenviarA.TextChanged += TXTenviarA_TextChanged;
             // 
-            // LBLcontenido
+            // TXTasunto
             // 
-            LBLcontenido.AutoSize = true;
-            LBLcontenido.Font = new Font("Times New Roman", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            LBLcontenido.Location = new Point(30, 137);
-            LBLcontenido.Name = "LBLcontenido";
-            LBLcontenido.Size = new Size(73, 17);
-            LBLcontenido.TabIndex = 8;
-            LBLcontenido.Text = "Contenido";
-            // 
-            // TXTdestinatario
-            // 
-            TXTdestinatario.BackColor = SystemColors.MenuBar;
-            TXTdestinatario.Location = new Point(112, 84);
-            TXTdestinatario.Name = "TXTdestinatario";
-            TXTdestinatario.Size = new Size(144, 23);
-            TXTdestinatario.TabIndex = 2;
-            TXTdestinatario.TextChanged += TXTdestinatario_TextChanged;
-            // 
-            // TXTcontenido
-            // 
-            TXTcontenido.BackColor = SystemColors.MenuBar;
-            TXTcontenido.Location = new Point(112, 134);
-            TXTcontenido.Name = "TXTcontenido";
-            TXTcontenido.Size = new Size(144, 23);
-            TXTcontenido.TabIndex = 3;
-            TXTcontenido.TextChanged += TXTcontenido_TextChanged;
+            TXTasunto.BackColor = SystemColors.MenuBar;
+            TXTasunto.Location = new Point(237, 78);
+            TXTasunto.Name = "TXTasunto";
+            TXTasunto.Size = new Size(215, 23);
+            TXTasunto.TabIndex = 3;
+            TXTasunto.TextChanged += TXTasunto_TextChanged;
             // 
             // BTNenviarguardar
             // 
             BTNenviarguardar.BackColor = SystemColors.MenuBar;
             BTNenviarguardar.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            BTNenviarguardar.Location = new Point(130, 211);
+            BTNenviarguardar.Location = new Point(302, 224);
             BTNenviarguardar.Name = "BTNenviarguardar";
             BTNenviarguardar.Size = new Size(100, 23);
             BTNenviarguardar.TabIndex = 9;
@@ -125,78 +102,110 @@
             BTNenviarguardar.UseVisualStyleBackColor = false;
             BTNenviarguardar.Click += BTNenviarguardar_Click;
             // 
-            // BTNcargarMensajes
+            // LBLgmail
             // 
-            BTNcargarMensajes.BackColor = SystemColors.MenuBar;
-            BTNcargarMensajes.Font = new Font("Times New Roman", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            BTNcargarMensajes.Location = new Point(482, 204);
-            BTNcargarMensajes.Name = "BTNcargarMensajes";
-            BTNcargarMensajes.Size = new Size(104, 23);
-            BTNcargarMensajes.TabIndex = 10;
-            BTNcargarMensajes.Text = "Cargar Mensajes";
-            BTNcargarMensajes.UseVisualStyleBackColor = false;
-            BTNcargarMensajes.Click += BTNcargarMensajes_Click;
+            LBLgmail.AutoSize = true;
+            LBLgmail.BackColor = SystemColors.GradientActiveCaption;
+            LBLgmail.Font = new Font("Times New Roman", 21.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            LBLgmail.Location = new Point(302, -3);
+            LBLgmail.Name = "LBLgmail";
+            LBLgmail.Size = new Size(88, 34);
+            LBLgmail.TabIndex = 11;
+            LBLgmail.Text = "Gmail";
             // 
-            // LBLmensajeria
+            // LBLadjuntarArchivos
             // 
-            LBLmensajeria.AutoSize = true;
-            LBLmensajeria.BackColor = SystemColors.GradientActiveCaption;
-            LBLmensajeria.Font = new Font("Times New Roman", 21.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            LBLmensajeria.Location = new Point(112, 27);
-            LBLmensajeria.Name = "LBLmensajeria";
-            LBLmensajeria.Size = new Size(147, 34);
-            LBLmensajeria.TabIndex = 11;
-            LBLmensajeria.Text = "Mensajeria";
+            LBLadjuntarArchivos.AutoSize = true;
+            LBLadjuntarArchivos.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            LBLadjuntarArchivos.Location = new Point(169, 257);
+            LBLadjuntarArchivos.Name = "LBLadjuntarArchivos";
+            LBLadjuntarArchivos.Size = new Size(95, 15);
+            LBLadjuntarArchivos.TabIndex = 13;
+            LBLadjuntarArchivos.Text = "Adjuntar Archivos";
             // 
-            // BTNlimpiar
+            // TXTmensaje
             // 
-            BTNlimpiar.BackColor = SystemColors.MenuBar;
-            BTNlimpiar.Font = new Font("Times New Roman", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            BTNlimpiar.Location = new Point(499, 233);
-            BTNlimpiar.Name = "BTNlimpiar";
-            BTNlimpiar.Size = new Size(75, 23);
-            BTNlimpiar.TabIndex = 12;
-            BTNlimpiar.Text = "Limpiar";
-            BTNlimpiar.UseVisualStyleBackColor = false;
-            BTNlimpiar.Click += BTNlimpiar_Click;
+            TXTmensaje.BackColor = SystemColors.MenuBar;
+            TXTmensaje.Location = new Point(237, 117);
+            TXTmensaje.Multiline = true;
+            TXTmensaje.Name = "TXTmensaje";
+            TXTmensaje.ScrollBars = ScrollBars.Vertical;
+            TXTmensaje.Size = new Size(215, 101);
+            TXTmensaje.TabIndex = 14;
+            TXTmensaje.TextChanged += TXTmensaje_TextChanged_1;
+            // 
+            // BTNinicio
+            // 
+            BTNinicio.BackColor = SystemColors.MenuBar;
+            BTNinicio.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            BTNinicio.Location = new Point(24, 39);
+            BTNinicio.Name = "BTNinicio";
+            BTNinicio.Size = new Size(75, 23);
+            BTNinicio.TabIndex = 15;
+            BTNinicio.Text = "Inicio";
+            BTNinicio.UseVisualStyleBackColor = false;
+            BTNinicio.Click += BTNinicio_Click;
+            // 
+            // LBLfiles
+            // 
+            LBLfiles.AutoSize = true;
+            LBLfiles.BackColor = SystemColors.MenuBar;
+            LBLfiles.Location = new Point(295, 279);
+            LBLfiles.Name = "LBLfiles";
+            LBLfiles.Size = new Size(16, 15);
+            LBLfiles.TabIndex = 16;
+            LBLfiles.Text = "...";
+            // 
+            // BTNadjuntar
+            // 
+            BTNadjuntar.BackColor = SystemColors.MenuBar;
+            BTNadjuntar.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            BTNadjuntar.Location = new Point(295, 253);
+            BTNadjuntar.Name = "BTNadjuntar";
+            BTNadjuntar.Size = new Size(107, 23);
+            BTNadjuntar.TabIndex = 17;
+            BTNadjuntar.Text = "Adjuntar Archivos";
+            BTNadjuntar.UseVisualStyleBackColor = false;
+            BTNadjuntar.Click += BTNadjuntar_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(793, 323);
-            Controls.Add(BTNlimpiar);
-            Controls.Add(LBLmensajeria);
-            Controls.Add(BTNcargarMensajes);
+            ClientSize = new Size(664, 415);
+            Controls.Add(BTNadjuntar);
+            Controls.Add(LBLfiles);
+            Controls.Add(BTNinicio);
+            Controls.Add(TXTmensaje);
+            Controls.Add(LBLadjuntarArchivos);
+            Controls.Add(LBLgmail);
             Controls.Add(BTNenviarguardar);
-            Controls.Add(LBLcontenido);
-            Controls.Add(LBLdestinatario);
-            Controls.Add(LBLtipodemensaje);
-            Controls.Add(TXTcontenido);
-            Controls.Add(TXTdestinatario);
-            Controls.Add(CBOtipo);
-            Controls.Add(dtgvMensajes);
+            Controls.Add(LBLasunto);
+            Controls.Add(LBLenviarA);
+            Controls.Add(LBLmensaje);
+            Controls.Add(TXTasunto);
+            Controls.Add(TXTenviarA);
             Name = "Form1";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Gmail";
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)dtgvMensajes).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private DataGridView dtgvMensajes;
-        private ComboBox CBOtipo;
-        private Label LBLtipodemensaje;
-        private Label LBLdestinatario;
-        private Label LBLcontenido;
-        private TextBox TXTdestinatario;
-        private TextBox TXTcontenido;
+        private Label LBLmensaje;
+        private Label LBLenviarA;
+        private Label LBLasunto;
+        private TextBox TXTenviarA;
+        private TextBox TXTasunto;
         private Button BTNenviarguardar;
-        private Button BTNcargarMensajes;
-        private Label LBLmensajeria;
-        private Button BTNlimpiar;
+        private Label LBLgmail;
+        private Label LBLadjuntarArchivos;
+        private TextBox TXTmensaje;
+        private Button BTNinicio;
+        private Label LBLfiles;
+        private Button BTNadjuntar;
     }
 }
