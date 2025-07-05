@@ -43,7 +43,7 @@ namespace CapaNegocios
             _botClient = null; // Reinicia el cliente para usar el nuevo token
         }
 
-        public override async void Enviar()
+        public override async Task Enviar()
         {
             try
             {

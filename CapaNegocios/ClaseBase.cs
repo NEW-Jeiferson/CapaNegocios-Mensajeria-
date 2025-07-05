@@ -12,7 +12,7 @@ public abstract class Mensaje
     public DateTime FechaEnvio { get; set; } = DateTime.Now;
  
 
-    public abstract void Enviar(); 
+    public abstract Task Enviar(); 
 
     public virtual bool Validar() 
     {

@@ -11,7 +11,7 @@ namespace CapaNegocios
     public class Sms : Mensaje
     {
 
-        public override void Enviar()
+        public override async Task Enviar()
         {
             // Lógica específica para enviar un SMS
             Console.WriteLine($"Enviando SMS a {Destinatario}: {Contenido}");

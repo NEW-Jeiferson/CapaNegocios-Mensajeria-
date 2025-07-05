@@ -40,7 +40,7 @@ namespace CapaNegocios
         }
 
 
-        public override void Enviar() 
+        public override async Task Enviar()
         {
             //TODO Verificar que las credenciales estén configuradas antes de intentar enviar
             if (string.IsNullOrEmpty(_senderEmail) || string.IsNullOrEmpty(_applicationPassword))
