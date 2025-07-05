@@ -37,52 +37,57 @@ namespace CapaPresentacion
 
         private void BTNenviarguardar_Click(object sender, EventArgs e)
         {
-            //TODO Validaciones
-            if (string.IsNullOrWhiteSpace(TXTenviarA.Text))
+            //TODO Validar los campos de entrada antes de enviar el correo
+            Gmail emailParaEnviar = new Gmail();
+            emailParaEnviar.Destinatario = TXTenviarA.Text.Trim();
+            emailParaEnviar.Asunto = TXTasunto.Text.Trim();
+            emailParaEnviar.Contenido = TXTmensaje.Text.Trim();
+            emailParaEnviar.FechaEnvio = DateTime.Now;
+            emailParaEnviar.RutasAdjuntos = _rutasArchivosAdjuntos;
+
+            //TODO Validar que los campos requeridos no estén vacíos
+            if (!emailParaEnviar.Validar())
             {
-                MessageBox.Show("El campo 'Enviar a' no puede estar vacío.", "Validación de Entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(TXTasunto.Text))
-            {
-                MessageBox.Show("El Campo 'Asunto' no puede estar Vacío.", "Validación de Entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(TXTmensaje.Text))
-            {
-                MessageBox.Show("El Campo 'Mensaje' no puede estar Vacío.", "Validación de Entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Verifique los campos: Destinatario, Asunto, Mensaje, Todos son requeridos.", "Validación de Entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             try
             {
-                //TODO Crear un objeto de negocio (Gmail) con los datos del formulario
-                Gmail emailParaEnviar = new Gmail();
-                emailParaEnviar.Destinatario = TXTenviarA.Text.Trim();
-                emailParaEnviar.Asunto = TXTasunto.Text.Trim();
-                emailParaEnviar.CuerpoMensaje = TXTmensaje.Text.Trim();
-                emailParaEnviar.FechaEnvio = DateTime.Now; // La fecha de envío es el momento actual
-                emailParaEnviar.RutasAdjuntos = _rutasArchivosAdjuntos; // Pasar las rutas de los adjuntos
+                //TODO Enviar el correo electrónico
+                emailParaEnviar.Enviar();
 
-                //TODO Llamar a la lógica de negocio para enviar el email
-                emailParaEnviar.Enviar(); // La clase Gmail se encarga de todo el SMTP
-
-                //TODO Llamar a la lógica de negocio para guardar el mensaje
-                MensajeRepositorio repo = new MensajeRepositorio();
-                repo.Guardar(emailParaEnviar); // El repositorio se encarga de la interacción con la DB
-
+                MensajeRepositorio repo = new MensajeRepositorio(); // Repositorio para guardar el mensaje en la base de datos
+                repo.Guardar(emailParaEnviar);
 
                 MessageBox.Show("Gmail enviado y Guardado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-
+            }
+            catch (InvalidOperationException ioEx)
+            {
+                //TODO Manejar la excepción si las credenciales de Gmail no están configuradas
+                MessageBox.Show($"Error de configuración de Gmail: {ioEx.Message}", "Error de Envío", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.Error.WriteLine($"Excepción de configuración: {ioEx}");
+            }
+            catch (System.Net.Mail.SmtpException smtpEx)
+            {
+                //TODO Manejar la excepción SMTP al enviar el correo
+                MessageBox.Show($"Error SMTP al enviar Gmail: {smtpEx.Message}\nAsegúrate de que el destinatario sea válido.", "Error de Envío", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.Error.WriteLine($"Excepción SMTP: {smtpEx}");
+            }
+            catch (FileNotFoundException fnfEx)
+            {
+                //TODO Manejar la excepción si un archivo adjunto no se encuentra
+                MessageBox.Show($"Error al adjuntar archivo: {fnfEx.Message}", "Error de Envío", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.Error.WriteLine($"Excepción de archivo no encontrado: {fnfEx}");
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ocurrio un error al Enviar o Guardar el Gmail: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //TODO Manejar cualquier otra excepción general
+                MessageBox.Show($"Ocurrió un error al Enviar o Guardar el Gmail: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.Error.WriteLine($"Excepción general: {ex}");
             }
 
             LimpiarCampos();
-
         }
 
 

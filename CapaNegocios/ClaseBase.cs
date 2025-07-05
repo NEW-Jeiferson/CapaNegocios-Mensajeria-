@@ -6,12 +6,11 @@ namespace CapaNegocios;
 
 public abstract class Mensaje
 {
-    
     public int Id { get; set; } 
     public string Contenido { get; set; }  = string.Empty;
     public string Destinatario { get; set; } = string.Empty;
-    public DateTime FechaEnvio { get; set; } = DateTime.Now; 
-
+    public DateTime FechaEnvio { get; set; } = DateTime.Now;
+ 
 
     public abstract void Enviar(); 
 
