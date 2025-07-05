@@ -10,10 +10,8 @@
 *.userosscache
 *.sln.docstates
 
-# Ignorar archivos de configuración sensibles
-appsettings.Development.json 
-appsettings.Local.json       
-appsettings.json            
+# Archivos de configuración sensibles para desarrollo local
+appsettings.Development.json         
 
 # Ignorar carpetas de compilación
 [Bb]in/
