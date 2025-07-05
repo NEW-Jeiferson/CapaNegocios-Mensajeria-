@@ -33,22 +33,25 @@ namespace CapaPresentacion
         private void TXTasunto_TextChanged(object sender, EventArgs e)
         {
 
-        }
+        } 
+
+        
 
         private void BTNenviarguardar_Click(object sender, EventArgs e)
         {
+
             //TODO Validar los campos de entrada antes de enviar el correo
             Gmail emailParaEnviar = new Gmail();
             emailParaEnviar.Destinatario = TXTenviarA.Text.Trim();
             emailParaEnviar.Asunto = TXTasunto.Text.Trim();
-            emailParaEnviar.Contenido = TXTmensaje.Text.Trim();
+            emailParaEnviar.CuerpoMensaje = TXTmensaje.Text.Trim();
             emailParaEnviar.FechaEnvio = DateTime.Now;
             emailParaEnviar.RutasAdjuntos = _rutasArchivosAdjuntos;
 
             //TODO Validar que los campos requeridos no estén vacíos
             if (!emailParaEnviar.Validar())
             {
-                MessageBox.Show("Verifique los campos: Destinatario, Asunto, Mensaje, Todos son requeridos.", "Validación de Entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Todos los campos obligatorios (destinatario, asunto y mensaje) deben estar completos.", "Validación de Entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 

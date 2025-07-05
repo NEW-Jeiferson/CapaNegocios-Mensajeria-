@@ -52,7 +52,7 @@ namespace CapaNegocios
             try
             {
                 MailAddress addressFrom = new MailAddress(_senderEmail, "GoatComm");
-                MailAddress addressTo = new MailAddress(this.Destinatario);
+                MailAddress addressTo = new MailAddress(this.Destinatario.Trim());
                 message = new MailMessage(addressFrom, addressTo);
 
                 message.Subject = this.Asunto;
@@ -102,10 +102,20 @@ namespace CapaNegocios
 
         public override bool Validar()
         {
-           
             bool baseValidation = base.Validar(); // Valida Destinatario y Contenido
             bool gmailSpecificValidation = !string.IsNullOrWhiteSpace(Asunto);
-            bool isValidEmailFormat = Destinatario.Contains("@") && Destinatario.Contains(".");
+
+            // Validación robusta del correo
+            bool isValidEmailFormat = false;
+            try
+            {
+                var mail = new MailAddress(Destinatario.Trim());
+                isValidEmailFormat = true;
+            }
+            catch
+            {
+                isValidEmailFormat = false;
+            }
 
             return baseValidation && gmailSpecificValidation && isValidEmailFormat;
         }

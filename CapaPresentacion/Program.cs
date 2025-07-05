@@ -17,11 +17,13 @@ namespace CapaPresentacion
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize(); // Esto puede variar según la versión de .NET, déjalo como esté si ya funciona.
 
-
             var configuration = new ConfigurationBuilder()
-                .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .Build();
+            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+           //TODO cargará el archivo de desarrollo y sobrescribirá los valores
+            .AddJsonFile("appsettings.Development.json", optional: true, reloadOnChange: true)
+            .Build();
+
 
             string telegramBotToken = configuration.GetSection("TelegramBot:Token").Value;
 
