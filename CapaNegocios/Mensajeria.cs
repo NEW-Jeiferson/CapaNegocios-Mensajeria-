@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using CapaDatos;
 using CapaNegocios;
 using Microsoft.Data.SqlClient;
-//1
 
 namespace CapaNegocios
 {
