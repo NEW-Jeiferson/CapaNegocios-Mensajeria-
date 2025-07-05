@@ -10,6 +10,23 @@
 *.userosscache
 *.sln.docstates
 
+# Ignorar archivos de configuración sensibles
+appsettings.Development.json # Archivo de configuración local con secretos
+appsettings.Local.json       # Otra convención para configuración local
+appsettings.json             # ¡Solo si este archivo solo contiene secretos!
+
+# Ignorar carpetas de compilación
+[Bb]in/
+[Oo]bj/
+
+# Ignorar archivos específicos de Visual Studio
+*.vs/
+*.user
+*.suo
+*.designer.cs.user
+*.bak
+*.log
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 
