@@ -11,9 +11,9 @@
 *.sln.docstates
 
 # Ignorar archivos de configuración sensibles
-appsettings.Development.json # Archivo de configuración local con secretos
-appsettings.Local.json       # Otra convención para configuración local
-appsettings.json             # ¡Solo si este archivo solo contiene secretos!
+appsettings.Development.json 
+appsettings.Local.json       
+appsettings.json            
 
 # Ignorar carpetas de compilación
 [Bb]in/
