@@ -142,7 +142,7 @@ namespace CapaPresentacion
         {
             Form2 nuevoForm = new Form2(); //TODO Nos pasa de nuestro form de Gmail hacia el form Principal
             nuevoForm.Show();
-            this.Hide(); //TODO Esconde nuestro formulario de Gmail cuando volvemos al Form principal
+            this.Dispose(); //TODO Esconde nuestro formulario de Gmail cuando volvemos al Form principal
         }
     }
 

@@ -25,7 +25,7 @@ namespace CapaPresentacion
             .Build();
 
 
-            string telegramBotToken = configuration.GetSection("TelegramBot:Token").Value;
+            string telegramBotToken = configuration["TelegramBot:Token"];
 
             if (!string.IsNullOrEmpty(telegramBotToken))
             {
@@ -37,8 +37,8 @@ namespace CapaPresentacion
                 return;
             }
 
-            string gmailAppPassword = configuration.GetSection("Gmail:ApplicationPassword").Value;
-            string gmailSenderEmail = configuration.GetSection("Gmail:SenderEmail").Value;
+            string gmailAppPassword = configuration["Gmail:ApplicationPassword"];
+            string gmailSenderEmail = configuration["Gmail:SenderEmail"];
 
             if (!string.IsNullOrEmpty(gmailAppPassword) && !string.IsNullOrEmpty(gmailSenderEmail))
             {
@@ -49,7 +49,7 @@ namespace CapaPresentacion
                 MessageBox.Show("Advertencia: Credenciales de Gmail incompletas.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            Application.Run(new Form1());
+            Application.Run(new Form3());
         }
     }
 }

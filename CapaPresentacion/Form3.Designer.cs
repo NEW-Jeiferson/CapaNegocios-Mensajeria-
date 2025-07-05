@@ -31,10 +31,13 @@
             LBLtelegramChatId = new Label();
             LBLtelegramMensaje = new Label();
             BTNenviarMensaje = new Button();
-            BTNlimpiarCampos = new Button();
             TXTtelegramChatId = new TextBox();
             TXTmensajeTelegram = new TextBox();
             LBLtelegram = new Label();
+            BTNadjuntar = new Button();
+            LBLfotos = new Label();
+            LBLfiles = new Label();
+            BTNinicio = new Button();
             SuspendLayout();
             // 
             // LBLtelegramChatId
@@ -63,15 +66,7 @@
             BTNenviarMensaje.TabIndex = 2;
             BTNenviarMensaje.Text = "Enviar Mensaje";
             BTNenviarMensaje.UseVisualStyleBackColor = true;
-            // 
-            // BTNlimpiarCampos
-            // 
-            BTNlimpiarCampos.Location = new Point(317, 307);
-            BTNlimpiarCampos.Name = "BTNlimpiarCampos";
-            BTNlimpiarCampos.Size = new Size(75, 23);
-            BTNlimpiarCampos.TabIndex = 3;
-            BTNlimpiarCampos.Text = "Limpiar";
-            BTNlimpiarCampos.UseVisualStyleBackColor = true;
+            BTNenviarMensaje.Click += BTNenviarMensaje_Click;
             // 
             // TXTtelegramChatId
             // 
@@ -99,16 +94,59 @@
             LBLtelegram.TabIndex = 6;
             LBLtelegram.Text = "Telegram";
             // 
+            // BTNadjuntar
+            // 
+            BTNadjuntar.Location = new Point(301, 316);
+            BTNadjuntar.Name = "BTNadjuntar";
+            BTNadjuntar.RightToLeft = RightToLeft.Yes;
+            BTNadjuntar.Size = new Size(103, 23);
+            BTNadjuntar.TabIndex = 7;
+            BTNadjuntar.Text = "Adjuntar Fotos";
+            BTNadjuntar.UseVisualStyleBackColor = true;
+            BTNadjuntar.Click += BTNadjuntar_Click;
+            // 
+            // LBLfotos
+            // 
+            LBLfotos.AutoSize = true;
+            LBLfotos.Location = new Point(137, 320);
+            LBLfotos.Name = "LBLfotos";
+            LBLfotos.Size = new Size(85, 15);
+            LBLfotos.TabIndex = 8;
+            LBLfotos.Text = "Adjuntar Fotos";
+            // 
+            // LBLfiles
+            // 
+            LBLfiles.AutoSize = true;
+            LBLfiles.BackColor = SystemColors.ControlLightLight;
+            LBLfiles.Location = new Point(301, 342);
+            LBLfiles.Name = "LBLfiles";
+            LBLfiles.Size = new Size(16, 15);
+            LBLfiles.TabIndex = 9;
+            LBLfiles.Text = "...";
+            // 
+            // BTNinicio
+            // 
+            BTNinicio.Location = new Point(577, 22);
+            BTNinicio.Name = "BTNinicio";
+            BTNinicio.Size = new Size(75, 23);
+            BTNinicio.TabIndex = 10;
+            BTNinicio.Text = "Inicio";
+            BTNinicio.UseVisualStyleBackColor = true;
+            BTNinicio.Click += BTNinicio_Click;
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
             ClientSize = new Size(664, 415);
+            Controls.Add(BTNinicio);
+            Controls.Add(LBLfiles);
+            Controls.Add(LBLfotos);
+            Controls.Add(BTNadjuntar);
             Controls.Add(LBLtelegram);
             Controls.Add(TXTmensajeTelegram);
             Controls.Add(TXTtelegramChatId);
-            Controls.Add(BTNlimpiarCampos);
             Controls.Add(BTNenviarMensaje);
             Controls.Add(LBLtelegramMensaje);
             Controls.Add(LBLtelegramChatId);
@@ -125,9 +163,12 @@
         private Label LBLtelegramChatId;
         private Label LBLtelegramMensaje;
         private Button BTNenviarMensaje;
-        private Button BTNlimpiarCampos;
         private TextBox TXTtelegramChatId;
         private TextBox TXTmensajeTelegram;
         private Label LBLtelegram;
+        private Button BTNadjuntar;
+        private Label LBLfotos;
+        private Label LBLfiles;
+        private Button BTNinicio;
     }
 }
