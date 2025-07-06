@@ -40,77 +40,84 @@ namespace CapaNegocios
                 throw new ArgumentNullException(nameof(token), "El Token de Bot de Telegram no puede ser nulo o vacío.");
 
             _botToken = token;
-            _botClient = null; // Reinicia el cliente para usar el nuevo token
+            _botClient = null; //TODO Reinicia el cliente para usar el nuevo token
         }
 
         public override async Task Enviar()
         {
-
             if (!long.TryParse(Destinatario, out long chatId))
-                throw new ArgumentException("El destinatario para Telegram debe ser un ID de chat numérico válido.");
+                throw new ArgumentException("El destinatario debe ser un ID de chat numérico válido.");
 
             var tieneImagenes = RutasImagenes.Any(ruta => System.IO.File.Exists(ruta));
             var tieneTexto = !string.IsNullOrWhiteSpace(Contenido);
 
-            //Cuando tenemos Solo mensaje de texto
-            if (!tieneImagenes && tieneTexto)
+            //TODO Por diferentes Complicaciones Pondre que solo se pueden enviar imagen si hay texto
+            if (!tieneTexto)
+                throw new InvalidOperationException("Debes ingresar un mensaje de texto para enviar.");
+
+            //TODO Cuando es solo un texto sin imagen
+            if (!tieneImagenes)
             {
                 await BotClientInstance.SendTextMessageAsync(
                     chatId: chatId,
                     text: Contenido,
                     parseMode: ParseMode.Html
                 );
-                Console.WriteLine($"Mensaje de texto enviado a {chatId}");
+                Console.WriteLine($"✅ Mensaje de texto enviado a {chatId}");
                 return;
             }
 
-            //Cuando Es Solo imágenes o imágenes + Texto
-            if (tieneImagenes)
+            //TODO Cuando tenemos Texto e Imágenes
+            var rutasValidas = RutasImagenes.Where(r => System.IO.File.Exists(r)).ToList();
+            var fileStreams = new List<FileStream>();
+
+            try
             {
+                //TODO Si solo hay una imagen
+                if (rutasValidas.Count == 1)
+                {
+                    using var stream = System.IO.File.OpenRead(rutasValidas[0]);
+                    var file = new InputFileStream(stream, Path.GetFileName(rutasValidas[0]));
+
+                    await BotClientInstance.SendPhotoAsync(
+                        chatId: chatId,
+                        photo: file,
+                        caption: Contenido,
+                        parseMode: ParseMode.Html
+                    );
+                    Console.WriteLine("Imagen + texto enviado.");
+                    return;
+                }
+
+                //TODO Si hay varias imágenes
                 var mediaGroup = new List<IAlbumInputMedia>();
-                var fileStreams = new List<FileStream>();
-
-                try
+                for (int idx = 0; idx < rutasValidas.Count; idx++)
                 {
-                    foreach (var ruta in RutasImagenes)
-                    {
-                        if (System.IO.File.Exists(ruta))
-                        {
-                            var stream = System.IO.File.OpenRead(ruta);
-                            fileStreams.Add(stream);
+                    var stream = System.IO.File.OpenRead(rutasValidas[idx]);
+                    fileStreams.Add(stream);
 
-                            var inputMedia = new InputMediaPhoto(new InputFileStream(stream, Path.GetFileName(ruta)));
-                            mediaGroup.Add(inputMedia);
-                        }
+                    var media = new InputMediaPhoto(new InputFileStream(stream, Path.GetFileName(rutasValidas[idx])));
+
+                    if (idx == 0) // Texto como caption solo en la primera imagen
+                    {
+                        media.Caption = Contenido;
+                        media.ParseMode = ParseMode.Html;
                     }
 
-                    if (mediaGroup.Count > 0)
-                    {
-                        //Si también hay texto, lo agregamos como caption a la primera imagen
-                        if (tieneTexto && mediaGroup[0] is InputMediaPhoto primeraFoto)
-                        {
-                            primeraFoto.Caption = Contenido;
-                            primeraFoto.ParseMode = ParseMode.Html;
-                        }
-
-                        await BotClientInstance.SendMediaGroupAsync(chatId, mediaGroup);
-                        Console.WriteLine($"Se enviaron {mediaGroup.Count} imágenes al chat ID: {chatId}");
-                    }
-                }
-                finally
-                {
-                    foreach (var stream in fileStreams)
-                        stream.Dispose();
+                    mediaGroup.Add(media);
                 }
 
-                return;
+                await BotClientInstance.SendMediaGroupAsync(chatId, mediaGroup);
+                Console.WriteLine($"Álbum con {mediaGroup.Count} imágenes enviado.");
             }
-
-            //Para cuando No hay texto ni imágenes válidas
-            throw new InvalidOperationException("No se proporcionó texto ni imágenes válidas para enviar.");
+            finally
+            {
+                foreach (var stream in fileStreams) 
+                    stream.Dispose();
+            }
         }
-        
 
+        /// Valida que el destinatario sea un ID numérico válido y que el contenido no esté vacío.
         public override bool Validar()
         {
             bool baseValidacion = base.Validar();

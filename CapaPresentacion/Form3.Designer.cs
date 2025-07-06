@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             LBLtelegramChatId = new Label();
             LBLtelegramMensaje = new Label();
             BTNenviarMensaje = new Button();
@@ -38,6 +39,10 @@
             LBLfotos = new Label();
             LBLfiles = new Label();
             BTNinicio = new Button();
+            BTNlimpiarFotos = new Button();
+            toolTipEnviar = new ToolTip(components);
+            toolTipAdjuntar = new ToolTip(components);
+            toolTipLimpiarfotos = new ToolTip(components);
             SuspendLayout();
             // 
             // LBLtelegramChatId
@@ -65,6 +70,7 @@
             BTNenviarMensaje.Size = new Size(103, 23);
             BTNenviarMensaje.TabIndex = 2;
             BTNenviarMensaje.Text = "Enviar Mensaje";
+            toolTipEnviar.SetToolTip(BTNenviarMensaje, "Haz Click para Guardar en la Base de Datos");
             BTNenviarMensaje.UseVisualStyleBackColor = true;
             BTNenviarMensaje.Click += BTNenviarMensaje_Click;
             // 
@@ -74,6 +80,7 @@
             TXTtelegramChatId.Name = "TXTtelegramChatId";
             TXTtelegramChatId.Size = new Size(188, 23);
             TXTtelegramChatId.TabIndex = 4;
+            TXTtelegramChatId.KeyPress += TXTtelegramChatId_KeyPress;
             // 
             // TXTmensajeTelegram
             // 
@@ -102,6 +109,7 @@
             BTNadjuntar.Size = new Size(103, 23);
             BTNadjuntar.TabIndex = 7;
             BTNadjuntar.Text = "Adjuntar Fotos";
+            toolTipAdjuntar.SetToolTip(BTNadjuntar, "Haz Click para Adjuntar Fotos");
             BTNadjuntar.UseVisualStyleBackColor = true;
             BTNadjuntar.Click += BTNadjuntar_Click;
             // 
@@ -134,12 +142,24 @@
             BTNinicio.UseVisualStyleBackColor = true;
             BTNinicio.Click += BTNinicio_Click;
             // 
+            // BTNlimpiarFotos
+            // 
+            BTNlimpiarFotos.Location = new Point(301, 380);
+            BTNlimpiarFotos.Name = "BTNlimpiarFotos";
+            BTNlimpiarFotos.Size = new Size(103, 23);
+            BTNlimpiarFotos.TabIndex = 11;
+            BTNlimpiarFotos.Text = "Limpiar Fotos";
+            toolTipLimpiarfotos.SetToolTip(BTNlimpiarFotos, "Haz Click para Eliminar Imagenes Seleccionadas");
+            BTNlimpiarFotos.UseVisualStyleBackColor = true;
+            BTNlimpiarFotos.Click += BTNlimpiarFotos_Click;
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
             ClientSize = new Size(664, 415);
+            Controls.Add(BTNlimpiarFotos);
             Controls.Add(BTNinicio);
             Controls.Add(LBLfiles);
             Controls.Add(LBLfotos);
@@ -170,5 +190,9 @@
         private Label LBLfotos;
         private Label LBLfiles;
         private Button BTNinicio;
+        private Button BTNlimpiarFotos;
+        private ToolTip toolTipEnviar;
+        private ToolTip toolTipAdjuntar;
+        private ToolTip toolTipLimpiarfotos;
     }
 }

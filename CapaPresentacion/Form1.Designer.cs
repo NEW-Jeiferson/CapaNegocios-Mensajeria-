@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             LBLmensaje = new Label();
             LBLenviarA = new Label();
             LBLasunto = new Label();
@@ -40,6 +41,8 @@
             BTNinicio = new Button();
             LBLfiles = new Label();
             BTNadjuntar = new Button();
+            toolTipGuardar = new ToolTip(components);
+            toolTipadjuntar = new ToolTip(components);
             SuspendLayout();
             // 
             // LBLmensaje
@@ -79,7 +82,9 @@
             TXTenviarA.Name = "TXTenviarA";
             TXTenviarA.Size = new Size(215, 23);
             TXTenviarA.TabIndex = 2;
+            toolTipGuardar.SetToolTip(TXTenviarA, "Introduce la dirección de correo electrónico del destinatario aquí");
             TXTenviarA.TextChanged += TXTenviarA_TextChanged;
+            TXTenviarA.KeyPress += TXTenviarA_KeyPress;
             // 
             // TXTasunto
             // 
@@ -89,6 +94,7 @@
             TXTasunto.Size = new Size(215, 23);
             TXTasunto.TabIndex = 3;
             TXTasunto.TextChanged += TXTasunto_TextChanged;
+            TXTasunto.KeyPress += TXTasunto_KeyPress;
             // 
             // BTNenviarguardar
             // 
@@ -99,6 +105,7 @@
             BTNenviarguardar.Size = new Size(100, 23);
             BTNenviarguardar.TabIndex = 9;
             BTNenviarguardar.Text = "Enviar / Guardar";
+            toolTipGuardar.SetToolTip(BTNenviarguardar, "Haz Click para Guardar en la Base de Datos");
             BTNenviarguardar.UseVisualStyleBackColor = false;
             BTNenviarguardar.Click += BTNenviarguardar_Click;
             // 
@@ -150,7 +157,7 @@
             // 
             LBLfiles.AutoSize = true;
             LBLfiles.BackColor = SystemColors.MenuBar;
-            LBLfiles.Location = new Point(295, 279);
+            LBLfiles.Location = new Point(302, 279);
             LBLfiles.Name = "LBLfiles";
             LBLfiles.Size = new Size(16, 15);
             LBLfiles.TabIndex = 16;
@@ -160,11 +167,12 @@
             // 
             BTNadjuntar.BackColor = SystemColors.MenuBar;
             BTNadjuntar.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            BTNadjuntar.Location = new Point(295, 253);
+            BTNadjuntar.Location = new Point(296, 253);
             BTNadjuntar.Name = "BTNadjuntar";
-            BTNadjuntar.Size = new Size(107, 23);
+            BTNadjuntar.Size = new Size(113, 23);
             BTNadjuntar.TabIndex = 17;
             BTNadjuntar.Text = "Adjuntar Archivos";
+            toolTipadjuntar.SetToolTip(BTNadjuntar, "Haz Click para Adjuntar Archivos");
             BTNadjuntar.UseVisualStyleBackColor = false;
             BTNadjuntar.Click += BTNadjuntar_Click;
             // 
@@ -207,5 +215,7 @@
         private Button BTNinicio;
         private Label LBLfiles;
         private Button BTNadjuntar;
+        private ToolTip toolTipGuardar;
+        private ToolTip toolTipadjuntar;
     }
 }

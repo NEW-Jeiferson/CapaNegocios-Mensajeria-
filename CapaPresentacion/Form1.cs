@@ -11,6 +11,7 @@ namespace CapaPresentacion
 {
     public partial class Form1 : Form
     {
+
         private List<string> _rutasArchivosAdjuntos = new List<string>(); // Lista para almacenar las rutas de los archivos adjuntos
 
 
@@ -18,6 +19,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             this.Load += Form1_Load;
+
         }
 
         private void TXTenviarA_TextChanged(object sender, EventArgs e)
@@ -33,12 +35,18 @@ namespace CapaPresentacion
         private void TXTasunto_TextChanged(object sender, EventArgs e)
         {
 
-        } 
+        }
 
-        
+
 
         private void BTNenviarguardar_Click(object sender, EventArgs e)
         {
+            //TODO Validar que el campo de destinatario no esté vacío y tenga un formato y un dominio de correo electrónico válido
+            if (string.IsNullOrWhiteSpace(TXTenviarA.Text) || !ValidarFormatoCorreo(TXTenviarA.Text) || !ValidarDominioFlexible(TXTenviarA.Text))
+            {
+                MessageBox.Show("El destinatario debe ser un correo electrónico válido con dominio permitido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             //TODO Validar los campos de entrada antes de enviar el correo
             Gmail emailParaEnviar = new Gmail();
@@ -57,10 +65,9 @@ namespace CapaPresentacion
 
             try
             {
-                //TODO Enviar el correo electrónico
+                //TODO Enviar el correo electrónico y que se guarde en la DB
                 emailParaEnviar.Enviar();
-
-                MensajeRepositorio repo = new MensajeRepositorio(); // Repositorio para guardar el mensaje en la base de datos
+                MensajeRepositorio repo = new MensajeRepositorio();
                 repo.Guardar(emailParaEnviar);
 
                 MessageBox.Show("Gmail enviado y Guardado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -144,8 +151,70 @@ namespace CapaPresentacion
             nuevoForm.Show();
             this.Dispose(); //TODO Esconde nuestro formulario de Gmail cuando volvemos al Form principal
         }
+
+        private void TXTenviarA_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Si no es una letra, ni un número, ni punto, ni arroba, ni tecla de control
+            if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '@' && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; //TODO Bloquea el caracter
+            }
+        }
+
+        private void TXTasunto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //Si no es una letra y no es una tecla de control, se bloquea
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true; //TODO Bloquea la tecla
+            }
+        }
+
+        private bool ValidarFormatoCorreo(string correo)
+        {
+            try
+            {
+                //TODO Intenta crear una instancia de MailAddress para validar el formato del correo
+                var mail = new System.Net.Mail.MailAddress(correo.Trim());
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool ValidarDominioFlexible(string correo)
+        {
+            try
+            {
+                var mail = new System.Net.Mail.MailAddress(correo.Trim());
+                string dominio = mail.Host.ToLower();
+
+                //TODO Lista de terminaciones válidas para el dominio
+                List<string> terminacionesValidas = new List<string>
+                {
+                    ".com",
+                    ".net",
+                    ".org",
+                    ".edu",
+                    ".edu.do",
+                    ".gov",
+                    ".do",
+                    ".es"
+                };
+
+                //TODO Verifica si el dominio contiene un punto y termina con una de las terminaciones válidas
+                return dominio.Contains('.') && terminacionesValidas.Any(t => dominio.EndsWith(t));
+            }
+            catch
+            {
+                return false; //TODO Si ocurre un error al validar el dominio, retorna falso
+            }
+        }
     }
-
-
 }
+
+
+
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaNegocios;
 
 namespace CapaPresentacion
 {
@@ -36,17 +37,17 @@ namespace CapaPresentacion
                     return;
                 }
 
-                if (string.IsNullOrWhiteSpace(contenido) && rutasImagenes.Count == 0)
+                if (string.IsNullOrWhiteSpace(contenido))
                 {
-                    MessageBox.Show("Debes ingresar contenido o al menos una imagen.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Debes ingresar un mensaje de texto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                CapaNegocios.Telegram mensaje = new CapaNegocios.Telegram
+                var mensaje = new CapaNegocios.Telegram
                 {
                     Destinatario = destinatario,
                     Contenido = contenido,
-                    RutasImagenes = rutasImagenes
+                    RutasImagenes = rutasImagenes // Puede estar vacío
                 };
 
                 if (!mensaje.Validar())
@@ -56,7 +57,10 @@ namespace CapaPresentacion
                 }
 
                 await mensaje.Enviar();
-                MessageBox.Show("Mensaje enviado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MensajeRepositorio repo = new MensajeRepositorio();
+                repo.Guardar(mensaje);
+
+                MessageBox.Show("Mensaje enviado y Guardado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -94,6 +98,32 @@ namespace CapaPresentacion
             TXTmensajeTelegram.Clear();
             LBLfiles.Text = string.Empty;
             rutasImagenes.Clear();
+        }
+
+        private void BTNlimpiarFotos_Click(object sender, EventArgs e)
+        {
+            LimpiarFIles();
+        }
+
+        private void LimpiarFIles()
+        {
+            rutasImagenes.Clear();
+            LBLfiles.Text = string.Empty;
+        }
+
+        private void TXTtelegramChatId_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //TODO Permite solo dígitos, control y el signo menos "-"
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '-')
+            {
+                e.Handled = true; //TODO Ignora la tecla si no es un dígito, control o signo menos
+            }
+
+            //TODO Solo permite un signo menos al principio
+            if (e.KeyChar == '-' && ((sender as TextBox).SelectionStart != 0 || (sender as TextBox).Text.Contains("-")))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

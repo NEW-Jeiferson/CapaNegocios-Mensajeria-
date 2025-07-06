@@ -6,6 +6,7 @@ namespace CapaNegocios;
 
 public abstract class Mensaje
 {
+    //Hola
     public int Id { get; set; } 
     public string Contenido { get; set; }  = string.Empty;
     public string Destinatario { get; set; } = string.Empty;
