@@ -49,7 +49,7 @@ namespace CapaPresentacion
                 MessageBox.Show("Advertencia: Credenciales de Gmail incompletas.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
-            Application.Run(new Form3());
+            Application.Run(new Form4());
         }
     }
 }
