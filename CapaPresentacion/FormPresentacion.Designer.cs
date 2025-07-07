@@ -281,14 +281,14 @@
             // 
             // panelContenedor
             // 
-            panelContenedor.BackColor = Color.FromArgb(220, 230, 240);
+            panelContenedor.BackColor = Color.AliceBlue;
             panelContenedor.Dock = DockStyle.Fill;
             panelContenedor.Location = new Point(180, 38);
             panelContenedor.Name = "panelContenedor";
             panelContenedor.Size = new Size(820, 612);
             panelContenedor.TabIndex = 2;
             // 
-            // Form4
+            // FormPresentacion
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -297,7 +297,7 @@
             Controls.Add(MenuVertical);
             Controls.Add(BarraTitulo);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Form4";
+            Name = "FormPresentacion";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form4";
             BarraTitulo.ResumeLayout(false);

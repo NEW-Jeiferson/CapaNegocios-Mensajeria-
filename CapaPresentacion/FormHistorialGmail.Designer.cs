@@ -35,7 +35,7 @@
             // DGVgmail
             // 
             DGVgmail.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGVgmail.Location = new Point(116, 85);
+            DGVgmail.Location = new Point(127, 127);
             DGVgmail.Margin = new Padding(3, 2, 3, 2);
             DGVgmail.Name = "DGVgmail";
             DGVgmail.RowHeadersWidth = 51;
@@ -46,6 +46,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.AliceBlue;
             ClientSize = new Size(804, 573);
             Controls.Add(DGVgmail);
             FormBorderStyle = FormBorderStyle.None;

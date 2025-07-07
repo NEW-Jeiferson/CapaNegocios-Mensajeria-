@@ -19,6 +19,7 @@ namespace CapaPresentacion
 
             var configuration = new ConfigurationBuilder()
             .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+            //TODO : Cargar la configuración desde el archivo appsettings.json
             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
            //TODO cargará el archivo de desarrollo y sobrescribirá los valores
             .AddJsonFile("appsettings.Development.json", optional: true, reloadOnChange: true)

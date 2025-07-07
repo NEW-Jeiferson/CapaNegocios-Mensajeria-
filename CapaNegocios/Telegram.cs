@@ -48,6 +48,10 @@ namespace CapaNegocios
             if (!long.TryParse(Destinatario, out long chatId))
                 throw new ArgumentException("El destinatario debe ser un ID de chat numérico válido.");
 
+            //TODO : Verifica que el token del bot esté configurado
+            var me = await BotClientInstance.GetMeAsync();
+            Console.WriteLine($"Bot conectado como @{me.Username}");
+
             var tieneImagenes = RutasImagenes.Any(ruta => System.IO.File.Exists(ruta)); //Investigar que es => 
             var tieneTexto = !string.IsNullOrWhiteSpace(Contenido);
 

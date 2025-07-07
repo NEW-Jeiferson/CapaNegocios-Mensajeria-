@@ -19,11 +19,17 @@ namespace CapaPresentacion
         {
             InitializeComponent();
             this.Load += Form1_Load;
-            this.TXTenviarA.Validating += TXTenviarA_Validating; //TODO : Validación del correo electrónico al perder el foco
+            this.TXTenviarA.TextChanged += TXTenviarA_TextChanged; //TODO : Evento para validar el correo electrónico ingresado
         }
 
         private void TXTenviarA_TextChanged(object sender, EventArgs e)
         {
+            //TODO : Validar el correo electrónico ingresado en el campo TXTenviarA
+            string correo = TXTenviarA.Text.Trim();
+            if (!ValidarCorreoCompleto(correo))
+                errorProviderCorreo.SetError(TXTenviarA, "Por favor, ingresa un correo electrónico válido y con un dominio permitido.");
+            else
+                errorProviderCorreo.SetError(TXTenviarA, "");
 
         }
 
@@ -44,7 +50,7 @@ namespace CapaPresentacion
             //TODO : Validar que el correo electrónico sea válido y tenga un dominio permitido
             if (!ValidarCorreoCompleto(correo))
             {
-                MessageBox.Show("El destinatario debe ser un correo electrónico válido con dominio permitido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Ingrese un correo electrónico válido y los campos faltantes.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -182,23 +188,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void TXTenviarA_Validating(object sender, CancelEventArgs e)
-        {
-            //TODO : Validar el campo de correo electrónico al perder el foco
-            string correo = TXTenviarA.Text.Trim();
-
-            // TODO : Limpiar el error previo si el correo es válido
-            if (!ValidarCorreoCompleto(correo))
-            {
-                errorProviderCorreo.SetError(TXTenviarA, "Correo inválido o con dominio no permitido.");
-                e.Cancel = true;
-            }
-            else
-            {
-                //TODO : Limpiar el error si el correo es válido
-                errorProviderCorreo.SetError(TXTenviarA, "");
-            }
-        }
     }
 }
 

@@ -35,7 +35,7 @@
             // DGVtelegram
             // 
             DGVtelegram.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGVtelegram.Location = new Point(190, 114);
+            DGVtelegram.Location = new Point(181, 108);
             DGVtelegram.Name = "DGVtelegram";
             DGVtelegram.Size = new Size(442, 357);
             DGVtelegram.TabIndex = 0;
@@ -44,7 +44,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.GradientActiveCaption;
+            BackColor = Color.AliceBlue;
             ClientSize = new Size(804, 573);
             Controls.Add(DGVtelegram);
             FormBorderStyle = FormBorderStyle.None;
