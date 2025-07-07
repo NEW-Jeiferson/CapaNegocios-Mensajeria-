@@ -6,20 +6,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.IO;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace CapaPresentacion
 {
     public partial class FormGmail : Form
     {
-
-        private List<string> _rutasArchivosAdjuntos = new List<string>(); // Lista para almacenar las rutas de los archivos adjuntos
-
+        private ErrorProvider errorProviderCorreo = new ErrorProvider(); //TODO : Manejar errores de validación de correo electrónico
+        private List<string> _rutasArchivosAdjuntos = new(); //TODO : Lista para almacenar múltiples rutas de archivos adjuntos
 
         public FormGmail()
         {
             InitializeComponent();
             this.Load += Form1_Load;
-
+            this.TXTenviarA.Validating += TXTenviarA_Validating; //TODO : Validación del correo electrónico al perder el foco
         }
 
         private void TXTenviarA_TextChanged(object sender, EventArgs e)
@@ -37,81 +37,73 @@ namespace CapaPresentacion
 
         }
 
-
-
         private void BTNenviarguardar_Click(object sender, EventArgs e)
         {
-            //TODO Validar que el campo de destinatario no esté vacío y tenga un formato y un dominio de correo electrónico válido
-            if (string.IsNullOrWhiteSpace(TXTenviarA.Text) || !ValidarFormatoCorreo(TXTenviarA.Text) || !ValidarDominioFlexible(TXTenviarA.Text))
+            string correo = TXTenviarA.Text.Trim(); //TODO : Obtener el correo electrónico del destinatario
+
+            //TODO : Validar que el correo electrónico sea válido y tenga un dominio permitido
+            if (!ValidarCorreoCompleto(correo))
             {
                 MessageBox.Show("El destinatario debe ser un correo electrónico válido con dominio permitido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            //TODO Validar los campos de entrada antes de enviar el correo
-            CapaNegocios.Gmail emailParaEnviar = new CapaNegocios.Gmail();
-            emailParaEnviar.Destinatario = TXTenviarA.Text.Trim();
-            emailParaEnviar.Asunto = TXTasunto.Text.Trim();
-            emailParaEnviar.CuerpoMensaje = TXTmensaje.Text.Trim();
-            emailParaEnviar.FechaEnvio = DateTime.Now;
-            emailParaEnviar.RutasAdjuntos = _rutasArchivosAdjuntos;
-
-            //TODO Validar que los campos requeridos no estén vacíos
-            if (!emailParaEnviar.Validar())
+            //TODO : Crear una instancia de Gmail con los datos ingresados
+            Gmail emailParaEnviar = new()
             {
-                MessageBox.Show("Todos los campos obligatorios (destinatario, asunto y mensaje) deben estar completos.", "Validación de Entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+                Destinatario = correo,
+                Asunto = TXTasunto.Text.Trim(),
+                CuerpoMensaje = TXTmensaje.Text.Trim(),
+                FechaEnvio = DateTime.Now,
+                RutasAdjuntos = _rutasArchivosAdjuntos
+            };
 
             try
             {
-                //TODO Enviar el correo electrónico y que se guarde en la DB
+                //TODO : Validar que todos los campos obligatorios estén completos
+                if (!emailParaEnviar.Validar())
+                {
+                    MessageBox.Show("Todos los campos obligatorios (destinatario, asunto y mensaje) deben estar completos.", "Validación de Entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                //TODO : Enviar el correo electrónico utilizando el método Enviar de la clase Gmail
                 emailParaEnviar.Enviar();
-                MensajeRepositorio repo = new MensajeRepositorio();
+                MensajeRepositorio repo = new();
                 repo.Guardar(emailParaEnviar);
 
                 MessageBox.Show("Gmail enviado y Guardado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (InvalidOperationException ioEx)
             {
-                //TODO Manejar la excepción si las credenciales de Gmail no están configuradas
                 MessageBox.Show($"Error de configuración de Gmail: {ioEx.Message}", "Error de Envío", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.Error.WriteLine($"Excepción de configuración: {ioEx}");
             }
             catch (System.Net.Mail.SmtpException smtpEx)
             {
-                //TODO Manejar la excepción SMTP al enviar el correo
                 MessageBox.Show($"Error SMTP al enviar Gmail: {smtpEx.Message}\nAsegúrate de que el destinatario sea válido.", "Error de Envío", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.Error.WriteLine($"Excepción SMTP: {smtpEx}");
             }
             catch (FileNotFoundException fnfEx)
             {
-                //TODO Manejar la excepción si un archivo adjunto no se encuentra
                 MessageBox.Show($"Error al adjuntar archivo: {fnfEx.Message}", "Error de Envío", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.Error.WriteLine($"Excepción de archivo no encontrado: {fnfEx}");
             }
             catch (Exception ex)
             {
-                //TODO Manejar cualquier otra excepción general
                 MessageBox.Show($"Ocurrió un error al Enviar o Guardar el Gmail: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Console.Error.WriteLine($"Excepción general: {ex}");
             }
 
             LimpiarCampos();
         }
 
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            LBLfiles.Text = "No se seleccionaron archivos adjuntos.";
+            if (string.IsNullOrEmpty(LBLfiles.Text))
+                LBLfiles.Text = "No se seleccionaron archivos adjuntos.";
         }
 
         private void LimpiarCampos()
         {
-
             TXTasunto.Clear();
             TXTmensaje.Clear();
-            _rutasArchivosAdjuntos.Clear(); // Borrar la lista de adjuntos
+            _rutasArchivosAdjuntos.Clear();
             LBLfiles.Text = "No se seleccionaron archivos adjuntos.";
         }
 
@@ -122,55 +114,67 @@ namespace CapaPresentacion
 
         public void AdjuntarArchivos()
         {
-            _rutasArchivosAdjuntos.Clear();
-
-            OpenFileDialog ofd = new OpenFileDialog(); // Cuadro de diálogo para abrir archivos
-            ofd.Multiselect = true;
-            ofd.Title = "Adjuntar Archivos a Correo";
-
-            if (ofd.ShowDialog() == DialogResult.OK) //Si el usuario presiona OK
+            //TODO : Permitir al usuario seleccionar múltiples archivos para adjuntar al correo
+            OpenFileDialog ofd = new()
             {
-                _rutasArchivosAdjuntos.AddRange(ofd.FileNames); //TODO Agregar las rutas seleccionadas
+                Multiselect = true,
+                Title = "Adjuntar Archivos a Correo"
+            };
+
+            //TODO : Filtrar los tipos de archivos permitidos (opcional)
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                //TODO : Verificar si las rutas de los archivos ya están en la lista
+                foreach (var archivo in ofd.FileNames)
+                {
+                    //TODO : Validar que el archivo exista y no esté vacío
+                    if (!_rutasArchivosAdjuntos.Contains(archivo))
+                        _rutasArchivosAdjuntos.Add(archivo);
+                }
             }
 
-            //TODO Actualizar la etiqueta LBLfiles con los nombres de los archivos
-            if (_rutasArchivosAdjuntos.Count > 0)
-            {
-                //TODO Mostrar solo el nombre del archivo, no la ruta completa, separados por saltos de línea
-                LBLfiles.Text = string.Join("\n", _rutasArchivosAdjuntos.Select(Path.GetFileName));
-            }
-            else
-            {
-                LBLfiles.Text = "No se seleccionaron archivos adjuntos.";
-            }
+            //TODO : Actualizar la etiqueta LBLfiles para mostrar los nombres de los archivos adjuntos seleccionados
+            LBLfiles.Text = _rutasArchivosAdjuntos.Count > 0
+                ? string.Join("\n", _rutasArchivosAdjuntos.Select(Path.GetFileName))
+                : "No se seleccionaron archivos adjuntos.";
         }
-
 
         private void TXTenviarA_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //Si no es una letra, ni un número, ni punto, ni arroba, ni tecla de control
+            //TODO : Validar que solo se ingresen caracteres válidos en el campo de correo electrónico
             if (!char.IsLetterOrDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != '@' && !char.IsControl(e.KeyChar))
             {
-                e.Handled = true; //TODO Bloquea el caracter
+                e.Handled = true;
             }
         }
 
         private void TXTasunto_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //Si no es una letra, espacios y no es una tecla de control, se bloquea
-            if (!char.IsLetter(e.KeyChar) && e.KeyChar != ' ' && !char.IsControl(e.KeyChar))
+            //TODO : Permite solo letras, espacios y teclas de control (como backspace)
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ' ')
             {
-                e.Handled = true; //TODO Bloquea la tecla
+                e.Handled = true; // Bloquea cualquier otro carácter
             }
         }
 
-        private bool ValidarFormatoCorreo(string correo)
+        private bool ValidarCorreoCompleto(string correo)
         {
+            //TODO : Validar que el correo electrónico no esté vacío y tenga un formato válido
+            if (string.IsNullOrWhiteSpace(correo)) return false;
+
             try
             {
-                //TODO Intenta crear una instancia de MailAddress para validar el formato del correo
-                var mail = new System.Net.Mail.MailAddress(correo.Trim());
-                return true;
+                //TODO : Verificar que el correo tenga un formato válido y un dominio permitido
+                var mail = new System.Net.Mail.MailAddress(correo);
+                string dominio = mail.Host.ToLower();
+
+                List<string> terminacionesValidas = new()
+                {
+                    ".com", ".net", ".org", ".edu", ".edu.do", ".gov", ".do", ".es"
+                };
+
+                //TODO : Comprobar que el dominio tenga una terminación válida
+                return dominio.Contains('.') && terminacionesValidas.Any(t => dominio.EndsWith(t));
             }
             catch
             {
@@ -178,32 +182,21 @@ namespace CapaPresentacion
             }
         }
 
-        private bool ValidarDominioFlexible(string correo)
+        private void TXTenviarA_Validating(object sender, CancelEventArgs e)
         {
-            try
+            //TODO : Validar el campo de correo electrónico al perder el foco
+            string correo = TXTenviarA.Text.Trim();
+
+            // TODO : Limpiar el error previo si el correo es válido
+            if (!ValidarCorreoCompleto(correo))
             {
-                var mail = new System.Net.Mail.MailAddress(correo.Trim());
-                string dominio = mail.Host.ToLower();
-
-                //TODO Lista de terminaciones válidas para el dominio
-                List<string> terminacionesValidas = new List<string>
-                {
-                    ".com",
-                    ".net",
-                    ".org",
-                    ".edu",
-                    ".edu.do",
-                    ".gov",
-                    ".do",
-                    ".es"
-                };
-
-                //TODO Verifica si el dominio contiene un punto y termina con una de las terminaciones válidas
-                return dominio.Contains('.') && terminacionesValidas.Any(t => dominio.EndsWith(t));
+                errorProviderCorreo.SetError(TXTenviarA, "Correo inválido o con dominio no permitido.");
+                e.Cancel = true;
             }
-            catch
+            else
             {
-                return false; //TODO Si ocurre un error al validar el dominio, retorna falso
+                //TODO : Limpiar el error si el correo es válido
+                errorProviderCorreo.SetError(TXTenviarA, "");
             }
         }
     }

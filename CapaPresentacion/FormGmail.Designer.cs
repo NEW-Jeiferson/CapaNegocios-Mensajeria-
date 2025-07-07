@@ -84,6 +84,7 @@
             toolTipGuardar.SetToolTip(TXTenviarA, "Introduce la dirección de correo electrónico del destinatario aquí");
             TXTenviarA.TextChanged += TXTenviarA_TextChanged;
             TXTenviarA.KeyPress += TXTenviarA_KeyPress;
+            TXTenviarA.Validating += TXTenviarA_Validating;
             // 
             // TXTasunto
             // 
@@ -163,7 +164,7 @@
             BTNadjuntar.UseVisualStyleBackColor = false;
             BTNadjuntar.Click += BTNadjuntar_Click;
             // 
-            // Form1
+            // FormGmail
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -181,7 +182,7 @@
             Controls.Add(TXTasunto);
             Controls.Add(TXTenviarA);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Form1";
+            Name = "FormGmail";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gmail";
             Load += Form1_Load;

@@ -47,19 +47,6 @@ namespace CapaNegocios
             {
                 throw new InvalidOperationException("Las credenciales de Gmail no se han configurado");
             }
-            foreach (string filePath in RutasAdjuntos)
-            {
-                if (File.Exists(filePath))
-                {
-                    FileInfo file = new FileInfo(filePath);
-                    if (file.Length > 20 * 1024 * 1024) // 20MB
-                        throw new Exception($"El archivo '{Path.GetFileName(filePath)}' supera el límite de 20MB.");
-                }
-                else
-                {
-                    throw new FileNotFoundException($"El archivo adjunto no fue encontrado: {filePath}");
-                }
-            }
 
             MailMessage message = null;
             try
@@ -115,13 +102,14 @@ namespace CapaNegocios
 
         public override bool Validar()
         {
-            bool baseValidation = base.Validar(); // Valida Destinatario y Contenido
+            bool baseValidation = base.Validar(); //TODO : Validar campos básicos de la clase base
             bool gmailSpecificValidation = !string.IsNullOrWhiteSpace(Asunto);
 
-            // Validación robusta del correo
+            //TODO : Validar formato del correo
             bool isValidEmailFormat = false;
             try
             {
+                //TODO : Intentar crear una dirección de correo para validar el formato
                 var mail = new MailAddress(Destinatario.Trim());
                 isValidEmailFormat = true;
             }
@@ -131,14 +119,24 @@ namespace CapaNegocios
             }
 
             if (Asunto.Length > 255)
-            {
-                throw new Exception("El asunto no puede superar los 255 caracteres.");
-            }
+                throw new Exception("El asunto no puede superar los 255 caracteres."); //TODO : Validar longitud del asunto
 
             if (CuerpoMensaje.Length > 5000)
-                throw new Exception("El cuerpo del mensaje no puede superar los 5000 caracteres.");
+                throw new Exception("El cuerpo del mensaje no puede superar los 5000 caracteres."); //TODO : Validar longitud del cuerpo del mensaje
 
-            return baseValidation && gmailSpecificValidation && isValidEmailFormat;
+            //TODO : Validar archivos adjuntos
+            foreach (var filePath in RutasAdjuntos)
+            {
+                if (!File.Exists(filePath))
+                    throw new FileNotFoundException($"El archivo adjunto no fue encontrado: {filePath}");
+
+                //TODO : Validar que el archivo no supere los 20MB
+                FileInfo file = new FileInfo(filePath);
+                if (file.Length > 20 * 1024 * 1024)
+                    throw new Exception($"El archivo '{Path.GetFileName(filePath)}' supera el límite de 20MB.");
+            }
+
+            return baseValidation && gmailSpecificValidation && isValidEmailFormat; //TODO : Validar formato del correo electrónico
         }
     }
 }
