@@ -11,10 +11,10 @@ using CapaNegocios;
 
 namespace CapaPresentacion
 {
-    public partial class Form3 : Form
+    public partial class FormTelegram : Form
     {
         private List<string> rutasImagenes = new();
-        public Form3()
+        public FormTelegram()
         {
             InitializeComponent();
         }

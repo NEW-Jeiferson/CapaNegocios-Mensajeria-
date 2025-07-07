@@ -117,7 +117,7 @@ namespace CapaNegocios
             }
         }
 
-        /// Valida que el destinatario sea un ID numérico válido y que el contenido no esté vacío.
+        //Valida que el destinatario sea un ID numérico válido y que el contenido no esté vacío.
         public override bool Validar()
         {
             bool baseValidacion = base.Validar();

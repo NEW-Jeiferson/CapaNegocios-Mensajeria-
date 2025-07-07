@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class Form3
+    partial class FormTelegram
     {
         /// <summary>
         /// Required designer variable.

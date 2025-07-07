@@ -17,7 +17,7 @@ namespace CapaNegocios
         public string Asunto { get; set; } = string.Empty;
         public List<string> RutasAdjuntos { get; set; } = new List<string>();
 
-        /// Método estático para configurar las credenciales de Gmail
+        //Método estático para configurar las credenciales de Gmail
         public static void GuardarCredenciales(string senderEmail, string applicationPassword)
         {
             if (string.IsNullOrEmpty(senderEmail))

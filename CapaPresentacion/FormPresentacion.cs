@@ -11,9 +11,9 @@ using System.Runtime.InteropServices; // Para permitir el arrastre de la ventana
 
 namespace CapaPresentacion
 {
-    public partial class Form4 : Form
+    public partial class FormPresentacion : Form
     {
-        public Form4()
+        public FormPresentacion()
         {
             InitializeComponent();
         }
@@ -74,13 +74,13 @@ namespace CapaPresentacion
         private void BTNhitorialTelegram_Click(object sender, EventArgs e)
         {
             SubmenuHistorial.Visible = false; // Oculta el submenú de historial al hacer clic en el botón
-            AbrirFormHija(new Form2()); // Abre el formulario de Telegram al hacer clic en el botón
+            AbrirFormHija(new FormHistorialTelegram()); // Abre el formulario de Telegram al hacer clic en el botón
         }
 
         private void BTNhistorialGmail_Click(object sender, EventArgs e)
         {
             SubmenuHistorial.Visible = false; // Oculta el submenú de historial al hacer clic en el botón
-            AbrirFormHija(new FormGmail()); // Abre el formulario de Gmail al hacer clic en el botón
+            AbrirFormHija(new FormHistorialGmail()); // Abre el formulario de Gmail al hacer clic en el botón
         }
 
         private void AbrirFormHija(object formhija)
@@ -99,12 +99,12 @@ namespace CapaPresentacion
 
         private void BTNtelegram_Click(object sender, EventArgs e)
         {
-            AbrirFormHija(new Form3()); // Abre el formulario de Telegram al hacer clic en el botón
+            AbrirFormHija(new FormTelegram()); // Abre el formulario de Telegram al hacer clic en el botón
         }
 
         private void BTNgmail_Click(object sender, EventArgs e)
         {
-            AbrirFormHija(new Form1()); // Abre el formulario de Gmail al hacer clic en el botón
+            AbrirFormHija(new FormGmail()); // Abre el formulario de Gmail al hacer clic en el botón
         }
 
         private void BTNinicio_Click(object sender, EventArgs e)

@@ -45,7 +45,7 @@ namespace CapaNegocios
                         command.Parameters.AddWithValue("@CuerpoMensaje", mensaje.Contenido);
                         command.Parameters.AddWithValue("@FechaEnvio", mensaje.FechaEnvio);
 
-                        // Corrección aquí: establecer explícitamente el tipo sin namespaces
+                        // Determinar el tipo de mensaje
                         string tipoMensaje = mensaje switch
                         {
                             Gmail => "Gmail",

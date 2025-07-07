@@ -12,10 +12,10 @@ using Microsoft.Data.SqlClient;
 
 namespace CapaPresentacion
 {
-    public partial class Form2 : Form
+    public partial class FormHistorialTelegram : Form
     {
 
-        public Form2()
+        public FormHistorialTelegram()
         {
             InitializeComponent();
         }

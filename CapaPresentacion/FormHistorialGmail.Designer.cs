@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class Form2
+    partial class FormHistorialGmail
     {
         /// <summary>
         /// Required designer variable.
@@ -28,36 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DGVtelegram = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)DGVtelegram).BeginInit();
+            DGVgmail = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)DGVgmail).BeginInit();
             SuspendLayout();
             // 
-            // DGVtelegram
+            // DGVgmail
             // 
-            DGVtelegram.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGVtelegram.Location = new Point(102, 86);
-            DGVtelegram.Name = "DGVtelegram";
-            DGVtelegram.Size = new Size(606, 357);
-            DGVtelegram.TabIndex = 0;
+            DGVgmail.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DGVgmail.Location = new Point(116, 85);
+            DGVgmail.Margin = new Padding(3, 2, 3, 2);
+            DGVgmail.Name = "DGVgmail";
+            DGVgmail.RowHeadersWidth = 51;
+            DGVgmail.Size = new Size(576, 322);
+            DGVgmail.TabIndex = 0;
             // 
-            // Form2
+            // FormHistorialGmail
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.GradientActiveCaption;
             ClientSize = new Size(804, 573);
-            Controls.Add(DGVtelegram);
+            Controls.Add(DGVgmail);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Form2";
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "FormHistorialGmail";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Historial Telegram";
-            Load += Form2_Load;
-            ((System.ComponentModel.ISupportInitialize)DGVtelegram).EndInit();
+            Text = "FormGmail";
+            Load += FormGmail_Load;
+            ((System.ComponentModel.ISupportInitialize)DGVgmail).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView DGVtelegram;
+        private DataGridView DGVgmail;
     }
 }

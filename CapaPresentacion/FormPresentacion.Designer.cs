@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class Form4
+    partial class FormPresentacion
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPresentacion));
             BarraTitulo = new Panel();
             BTNrestaurar = new PictureBox();
             BTNmaximizar = new PictureBox();
