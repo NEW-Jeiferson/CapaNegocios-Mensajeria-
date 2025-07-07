@@ -18,6 +18,7 @@ namespace CapaPresentacion
         public FormHistorialTelegram()
         {
             InitializeComponent();
+            ConfigurarDataGridviewNoEditable(); // Configura el DataGridView para que no sea editable
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -56,5 +57,25 @@ namespace CapaPresentacion
             }
 
         }
+        
+        private void ConfigurarDataGridviewNoEditable()
+        {
+            // Reemplaza 'tuDataGridView' con el nombre de tu DataGridView
+            DGVtelegram.ReadOnly = true;
+            DGVtelegram.AllowUserToAddRows = false;
+            DGVtelegram.AllowUserToDeleteRows = false;
+
+            // Opcional: Otras propiedades útiles para un DataGridView de solo lectura
+            DGVtelegram.AllowUserToResizeColumns = true;  // ¿Permitir cambiar el tamaño de las columnas?
+            DGVtelegram.AllowUserToResizeRows = false;   // ¿Permitir cambiar el tamaño de las filas?
+            DGVtelegram.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize; // Ajuste automático de la altura de la cabecera
+            DGVtelegram.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Seleccionar fila completa al hacer clic
+            DGVtelegram.MultiSelect = false; // Permitir seleccionar solo una fila a la vez
+            DGVtelegram.EditMode = DataGridViewEditMode.EditProgrammatically; // Solo se puede editar programáticamente
+        }
+        
+
+        
     }
+    
 }

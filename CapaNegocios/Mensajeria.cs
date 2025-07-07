@@ -50,6 +50,7 @@ namespace CapaNegocios
                         {
                             Gmail => "Gmail",
                             Telegram => "Telegram",
+                            _ => throw new ArgumentException("Tipo de mensaje no reconocido.")
                         };
 
                         command.Parameters.AddWithValue("@TipoMensaje", tipoMensaje);

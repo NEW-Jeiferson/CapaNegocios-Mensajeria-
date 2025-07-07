@@ -18,7 +18,8 @@ namespace CapaPresentacion
         public FormHistorialGmail()
         {
             InitializeComponent();
-        
+            ConfigurarDataGridviewNoEditable(); // Configura el DataGridView para que no sea editable
+
         }
 
         private void CargarHistorialGmail()
@@ -57,6 +58,22 @@ namespace CapaPresentacion
         private void FormGmail_Load(object sender, EventArgs e)
         {
             CargarHistorialGmail();
+        }
+
+        private void ConfigurarDataGridviewNoEditable()
+        {
+            // Reemplaza 'tuDataGridView' con el nombre de tu DataGridView
+            DGVgmail.ReadOnly = true;
+            DGVgmail.AllowUserToAddRows = false;
+            DGVgmail.AllowUserToDeleteRows = false;
+
+            // Opcional: Otras propiedades útiles para un DataGridView de solo lectura
+            DGVgmail.AllowUserToResizeColumns = true;  // ¿Permitir cambiar el tamaño de las columnas?
+            DGVgmail.AllowUserToResizeRows = false;   // ¿Permitir cambiar el tamaño de las filas?
+            DGVgmail.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize; // Ajuste automático de la altura de la cabecera
+            DGVgmail.SelectionMode = DataGridViewSelectionMode.FullRowSelect; // Seleccionar fila completa al hacer clic
+            DGVgmail.MultiSelect = false; // Permitir seleccionar solo una fila a la vez
+            DGVgmail.EditMode = DataGridViewEditMode.EditProgrammatically; // Solo se puede editar programáticamente
         }
     }
 }

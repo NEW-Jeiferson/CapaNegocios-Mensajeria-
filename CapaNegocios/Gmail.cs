@@ -47,6 +47,19 @@ namespace CapaNegocios
             {
                 throw new InvalidOperationException("Las credenciales de Gmail no se han configurado");
             }
+            foreach (string filePath in RutasAdjuntos)
+            {
+                if (File.Exists(filePath))
+                {
+                    FileInfo file = new FileInfo(filePath);
+                    if (file.Length > 20 * 1024 * 1024) // 20MB
+                        throw new Exception($"El archivo '{Path.GetFileName(filePath)}' supera el límite de 20MB.");
+                }
+                else
+                {
+                    throw new FileNotFoundException($"El archivo adjunto no fue encontrado: {filePath}");
+                }
+            }
 
             MailMessage message = null;
             try
@@ -77,7 +90,7 @@ namespace CapaNegocios
                 client.UseDefaultCredentials = false;
                 client.Credentials = new NetworkCredential(_senderEmail, _applicationPassword);
 
-                client.Send(message); 
+                await client.SendMailAsync(message);
             }
             catch (SmtpException ex)
             {
@@ -116,6 +129,14 @@ namespace CapaNegocios
             {
                 isValidEmailFormat = false;
             }
+
+            if (Asunto.Length > 255)
+            {
+                throw new Exception("El asunto no puede superar los 255 caracteres.");
+            }
+
+            if (CuerpoMensaje.Length > 5000)
+                throw new Exception("El cuerpo del mensaje no puede superar los 5000 caracteres.");
 
             return baseValidation && gmailSpecificValidation && isValidEmailFormat;
         }

@@ -35,12 +35,12 @@
             // DGVtelegram
             // 
             DGVtelegram.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGVtelegram.Location = new Point(102, 86);
+            DGVtelegram.Location = new Point(190, 114);
             DGVtelegram.Name = "DGVtelegram";
-            DGVtelegram.Size = new Size(606, 357);
+            DGVtelegram.Size = new Size(442, 357);
             DGVtelegram.TabIndex = 0;
             // 
-            // Form2
+            // FormHistorialTelegram
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -48,7 +48,7 @@
             ClientSize = new Size(804, 573);
             Controls.Add(DGVtelegram);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Form2";
+            Name = "FormHistorialTelegram";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Historial Telegram";
             Load += Form2_Load;

@@ -39,7 +39,7 @@
             DGVgmail.Margin = new Padding(3, 2, 3, 2);
             DGVgmail.Name = "DGVgmail";
             DGVgmail.RowHeadersWidth = 51;
-            DGVgmail.Size = new Size(576, 322);
+            DGVgmail.Size = new Size(550, 320);
             DGVgmail.TabIndex = 0;
             // 
             // FormHistorialGmail
