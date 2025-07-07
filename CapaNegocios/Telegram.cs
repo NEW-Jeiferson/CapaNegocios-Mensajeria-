@@ -48,7 +48,7 @@ namespace CapaNegocios
             if (!long.TryParse(Destinatario, out long chatId))
                 throw new ArgumentException("El destinatario debe ser un ID de chat numérico válido.");
 
-            var tieneImagenes = RutasImagenes.Any(ruta => System.IO.File.Exists(ruta));
+            var tieneImagenes = RutasImagenes.Any(ruta => System.IO.File.Exists(ruta)); //Investigar que es => 
             var tieneTexto = !string.IsNullOrWhiteSpace(Contenido);
 
             //TODO Por diferentes Complicaciones Pondre que solo se pueden enviar imagen si hay texto
@@ -63,7 +63,7 @@ namespace CapaNegocios
                     text: Contenido,
                     parseMode: ParseMode.Html
                 );
-                Console.WriteLine($"✅ Mensaje de texto enviado a {chatId}");
+                Console.WriteLine($"Mensaje de texto enviado a {chatId}");
                 return;
             }
 

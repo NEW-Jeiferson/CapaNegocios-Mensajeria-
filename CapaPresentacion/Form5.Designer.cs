@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class Form2
+    partial class Form5
     {
         /// <summary>
         /// Required designer variable.
@@ -28,36 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DGVtelegram = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)DGVtelegram).BeginInit();
+            DGVgmail = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)DGVgmail).BeginInit();
             SuspendLayout();
             // 
-            // DGVtelegram
+            // DGVgmail
             // 
-            DGVtelegram.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGVtelegram.Location = new Point(102, 86);
-            DGVtelegram.Name = "DGVtelegram";
-            DGVtelegram.Size = new Size(606, 357);
-            DGVtelegram.TabIndex = 0;
+            DGVgmail.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DGVgmail.Cursor = Cursors.Hand;
+            DGVgmail.Location = new Point(83, 108);
+            DGVgmail.Name = "DGVgmail";
+            DGVgmail.Size = new Size(633, 314);
+            DGVgmail.TabIndex = 0;
             // 
-            // Form2
+            // Form5
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(804, 573);
-            Controls.Add(DGVtelegram);
+            ClientSize = new Size(820, 612);
+            Controls.Add(DGVgmail);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Form2";
+            Name = "Form5";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Historial Telegram";
-            Load += Form2_Load;
-            ((System.ComponentModel.ISupportInitialize)DGVtelegram).EndInit();
+            Text = "Historial Gmail";
+            ((System.ComponentModel.ISupportInitialize)DGVgmail).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView DGVtelegram;
+        private DataGridView DGVgmail;
     }
 }

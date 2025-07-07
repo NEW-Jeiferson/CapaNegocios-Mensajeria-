@@ -18,10 +18,9 @@ namespace CapaNegocios
                 throw new ArgumentException("El mensaje no es válido (destinatario o contenido vacíos).");
             }
 
-            string query = "INSERT INTO MENSAJES (Destinatario, Asunto, CuerpoMensaje, FechaEnvio, TipoMensaje)" +
-                           "VALUES (@Destinatario, @Asunto, @CuerpoMensaje, @FechaEnvio, @TipoMensaje)";
+            string query = @"INSERT INTO MENSAJES (Destinatario, Asunto, CuerpoMensaje, FechaEnvio, TipoMensaje)
+                             VALUES (@Destinatario, @Asunto, @CuerpoMensaje, @FechaEnvio, @TipoMensaje)";
 
-            //TODO Crear una instancia de Mensajeriaconexion para obtener la cadena de conexión
             Mensajeriaconexion conexionDatos = new Mensajeriaconexion();
 
             using (SqlConnection connection = new SqlConnection(conexionDatos.Conexion))
@@ -45,7 +44,15 @@ namespace CapaNegocios
 
                         command.Parameters.AddWithValue("@CuerpoMensaje", mensaje.Contenido);
                         command.Parameters.AddWithValue("@FechaEnvio", mensaje.FechaEnvio);
-                        command.Parameters.AddWithValue("@TipoMensaje", mensaje.GetType().Name);
+
+                        // Corrección aquí: establecer explícitamente el tipo sin namespaces
+                        string tipoMensaje = mensaje switch
+                        {
+                            Gmail => "Gmail",
+                            Telegram => "Telegram",
+                        };
+
+                        command.Parameters.AddWithValue("@TipoMensaje", tipoMensaje);
 
                         command.ExecuteNonQuery();
                     }

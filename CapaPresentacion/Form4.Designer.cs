@@ -44,7 +44,7 @@
             BTNgmail = new Button();
             panel1 = new Panel();
             BTNtelegram = new Button();
-            pictureBox1 = new PictureBox();
+            BTNinicio = new PictureBox();
             panelContenedor = new Panel();
             BarraTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BTNrestaurar).BeginInit();
@@ -53,7 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)BTNcerrar).BeginInit();
             MenuVertical.SuspendLayout();
             SubmenuHistorial.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)BTNinicio).BeginInit();
             SuspendLayout();
             // 
             // BarraTitulo
@@ -134,7 +134,7 @@
             MenuVertical.Controls.Add(BTNgmail);
             MenuVertical.Controls.Add(panel1);
             MenuVertical.Controls.Add(BTNtelegram);
-            MenuVertical.Controls.Add(pictureBox1);
+            MenuVertical.Controls.Add(BTNinicio);
             MenuVertical.Dock = DockStyle.Left;
             MenuVertical.Location = new Point(0, 38);
             MenuVertical.Name = "MenuVertical";
@@ -217,7 +217,7 @@
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(4, 106, 56);
-            panel2.Location = new Point(0, 264);
+            panel2.Location = new Point(0, 275);
             panel2.Name = "panel2";
             panel2.Size = new Size(7, 53);
             panel2.TabIndex = 4;
@@ -233,12 +233,13 @@
             BTNgmail.ForeColor = Color.White;
             BTNgmail.Image = (Image)resources.GetObject("BTNgmail.Image");
             BTNgmail.ImageAlign = ContentAlignment.MiddleLeft;
-            BTNgmail.Location = new Point(3, 264);
+            BTNgmail.Location = new Point(3, 275);
             BTNgmail.Name = "BTNgmail";
             BTNgmail.Size = new Size(177, 53);
             BTNgmail.TabIndex = 3;
             BTNgmail.Text = "Gmail";
             BTNgmail.UseVisualStyleBackColor = false;
+            BTNgmail.Click += BTNgmail_Click;
             // 
             // panel1
             // 
@@ -265,16 +266,18 @@
             BTNtelegram.TabIndex = 1;
             BTNtelegram.Text = "Telegram";
             BTNtelegram.UseVisualStyleBackColor = false;
+            BTNtelegram.Click += BTNtelegram_Click;
             // 
-            // pictureBox1
+            // BTNinicio
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(180, 144);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            BTNinicio.Image = (Image)resources.GetObject("BTNinicio.Image");
+            BTNinicio.Location = new Point(0, 0);
+            BTNinicio.Name = "BTNinicio";
+            BTNinicio.Size = new Size(180, 144);
+            BTNinicio.SizeMode = PictureBoxSizeMode.Zoom;
+            BTNinicio.TabIndex = 0;
+            BTNinicio.TabStop = false;
+            BTNinicio.Click += BTNinicio_Click;
             // 
             // panelContenedor
             // 
@@ -295,6 +298,7 @@
             Controls.Add(BarraTitulo);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Form4";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form4";
             BarraTitulo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BTNrestaurar).EndInit();
@@ -303,7 +307,7 @@
             ((System.ComponentModel.ISupportInitialize)BTNcerrar).EndInit();
             MenuVertical.ResumeLayout(false);
             SubmenuHistorial.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)BTNinicio).EndInit();
             ResumeLayout(false);
         }
 
@@ -316,7 +320,7 @@
         private PictureBox BTNminimizar;
         private PictureBox BTNmaximizar;
         private PictureBox BTNrestaurar;
-        private PictureBox pictureBox1;
+        private PictureBox BTNinicio;
         private Button BTNtelegram;
         private Panel panel1;
         private Panel panel2;

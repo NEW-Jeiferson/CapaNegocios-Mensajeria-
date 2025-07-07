@@ -74,11 +74,42 @@ namespace CapaPresentacion
         private void BTNhitorialTelegram_Click(object sender, EventArgs e)
         {
             SubmenuHistorial.Visible = false; // Oculta el submenú de historial al hacer clic en el botón
+            AbrirFormHija(new Form2()); // Abre el formulario de Telegram al hacer clic en el botón
         }
 
         private void BTNhistorialGmail_Click(object sender, EventArgs e)
         {
             SubmenuHistorial.Visible = false; // Oculta el submenú de historial al hacer clic en el botón
+            AbrirFormHija(new Form5()); // Abre el formulario de Gmail al hacer clic en el botón
+        }
+
+        private void AbrirFormHija(object formhija)
+        {
+            if (this.panelContenedor.Controls.Count > 0)
+            {
+                this.panelContenedor.Controls.RemoveAt(0); // Elimina el formulario hijo actual si existe
+            }
+            Form fh = formhija as Form; //TODO Convierte el objeto 'formhija' a tipo 'Form'
+            fh.TopLevel = false; //TODO Establece el formulario hijo como no de nivel superior
+            fh.Dock = DockStyle.Fill; //TODO Ajusta el formulario hijo para que ocupe todo el espacio disponible
+            this.panelContenedor.Controls.Add(fh); //TODO Agrega el formulario hijo al contenedor
+            this.panelContenedor.Tag = fh; //TODO Asigna el formulario hijo al contenedor para referencia futura
+            fh.Show(); //TODO Muestra el formulario hijo en el contenedor
+        }
+
+        private void BTNtelegram_Click(object sender, EventArgs e)
+        {
+            AbrirFormHija(new Form3()); // Abre el formulario de Telegram al hacer clic en el botón
+        }
+
+        private void BTNgmail_Click(object sender, EventArgs e)
+        {
+            AbrirFormHija(new Form1()); // Abre el formulario de Gmail al hacer clic en el botón
+        }
+
+        private void BTNinicio_Click(object sender, EventArgs e)
+        {
+            AbrirFormHija(new Inicio()); // Abre el formulario principal al hacer clic en el botón
         }
     }
 }

@@ -38,7 +38,6 @@
             BTNadjuntar = new Button();
             LBLfotos = new Label();
             LBLfiles = new Label();
-            BTNinicio = new Button();
             BTNlimpiarFotos = new Button();
             toolTipEnviar = new ToolTip(components);
             toolTipAdjuntar = new ToolTip(components);
@@ -132,16 +131,6 @@
             LBLfiles.TabIndex = 9;
             LBLfiles.Text = "...";
             // 
-            // BTNinicio
-            // 
-            BTNinicio.Location = new Point(577, 22);
-            BTNinicio.Name = "BTNinicio";
-            BTNinicio.Size = new Size(75, 23);
-            BTNinicio.TabIndex = 10;
-            BTNinicio.Text = "Inicio";
-            BTNinicio.UseVisualStyleBackColor = true;
-            BTNinicio.Click += BTNinicio_Click;
-            // 
             // BTNlimpiarFotos
             // 
             BTNlimpiarFotos.Location = new Point(301, 380);
@@ -158,9 +147,8 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(664, 415);
+            ClientSize = new Size(820, 612);
             Controls.Add(BTNlimpiarFotos);
-            Controls.Add(BTNinicio);
             Controls.Add(LBLfiles);
             Controls.Add(LBLfotos);
             Controls.Add(BTNadjuntar);
@@ -170,6 +158,7 @@
             Controls.Add(BTNenviarMensaje);
             Controls.Add(LBLtelegramMensaje);
             Controls.Add(LBLtelegramChatId);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Form3";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Telegram";
@@ -189,7 +178,6 @@
         private Button BTNadjuntar;
         private Label LBLfotos;
         private Label LBLfiles;
-        private Button BTNinicio;
         private Button BTNlimpiarFotos;
         private ToolTip toolTipEnviar;
         private ToolTip toolTipAdjuntar;

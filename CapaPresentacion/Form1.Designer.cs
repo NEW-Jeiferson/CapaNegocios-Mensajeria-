@@ -38,7 +38,6 @@
             LBLgmail = new Label();
             LBLadjuntarArchivos = new Label();
             TXTmensaje = new TextBox();
-            BTNinicio = new Button();
             LBLfiles = new Label();
             BTNadjuntar = new Button();
             toolTipGuardar = new ToolTip(components);
@@ -141,18 +140,6 @@
             TXTmensaje.TabIndex = 14;
             TXTmensaje.TextChanged += TXTmensaje_TextChanged_1;
             // 
-            // BTNinicio
-            // 
-            BTNinicio.BackColor = SystemColors.MenuBar;
-            BTNinicio.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            BTNinicio.Location = new Point(24, 39);
-            BTNinicio.Name = "BTNinicio";
-            BTNinicio.Size = new Size(75, 23);
-            BTNinicio.TabIndex = 15;
-            BTNinicio.Text = "Inicio";
-            BTNinicio.UseVisualStyleBackColor = false;
-            BTNinicio.Click += BTNinicio_Click;
-            // 
             // LBLfiles
             // 
             LBLfiles.AutoSize = true;
@@ -181,10 +168,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
-            ClientSize = new Size(664, 415);
+            ClientSize = new Size(804, 573);
             Controls.Add(BTNadjuntar);
             Controls.Add(LBLfiles);
-            Controls.Add(BTNinicio);
             Controls.Add(TXTmensaje);
             Controls.Add(LBLadjuntarArchivos);
             Controls.Add(LBLgmail);
@@ -194,6 +180,7 @@
             Controls.Add(LBLmensaje);
             Controls.Add(TXTasunto);
             Controls.Add(TXTenviarA);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "Form1";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Gmail";
@@ -212,7 +199,6 @@
         private Label LBLgmail;
         private Label LBLadjuntarArchivos;
         private TextBox TXTmensaje;
-        private Button BTNinicio;
         private Label LBLfiles;
         private Button BTNadjuntar;
         private ToolTip toolTipGuardar;

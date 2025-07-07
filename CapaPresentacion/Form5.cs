@@ -12,19 +12,19 @@ using Microsoft.Data.SqlClient;
 
 namespace CapaPresentacion
 {
-    public partial class Form2 : Form
+    public partial class Form5 : Form
     {
-        public Form2()
+        public Form5()
         {
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void Form5_Load(object sender, EventArgs e)
         {
-            CargarHistorialTelegram();
+            CargarHistorialGmail();
         }
 
-        private void CargarHistorialTelegram()
+        private void CargarHistorialGmail()
         {
             Mensajeriaconexion conexionDatos = new Mensajeriaconexion();
 
@@ -34,27 +34,26 @@ namespace CapaPresentacion
                 {
                     conn.Open();
 
-                    string query = @"SELECT Id, Destinatario, CuerpoMensaje, FechaEnvio
+                    string query = @"SELECT Id, Destinatario, Asunto, CuerpoMensaje, FechaEnvio
                              FROM MENSAJES
-                             WHERE TipoMensaje = 'Telegram'";
+                             WHERE TipoMensaje = 'Gmail'";
 
                     SqlDataAdapter adaptador = new SqlDataAdapter(query, conn);
                     DataTable tabla = new DataTable();
                     adaptador.Fill(tabla);
 
-                    DGVtelegram.DataSource = tabla;
+                    DGVgmail.DataSource = tabla;
                 }
             }
             catch (SqlException ex)
             {
-                MessageBox.Show($"Error al cargar el historial de Telegram: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error al cargar el historial de Gmail: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error inesperado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
         }
+
     }
 }
