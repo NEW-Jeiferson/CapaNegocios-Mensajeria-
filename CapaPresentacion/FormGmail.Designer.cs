@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class Form5
+    partial class FormGmail
     {
         /// <summary>
         /// Required designer variable.
@@ -28,35 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DGVgmail = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)DGVgmail).BeginInit();
+            DGVGMAIL = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)DGVGMAIL).BeginInit();
             SuspendLayout();
             // 
-            // DGVgmail
+            // DGVGMAIL
             // 
-            DGVgmail.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGVgmail.Cursor = Cursors.Hand;
-            DGVgmail.Location = new Point(83, 108);
-            DGVgmail.Name = "DGVgmail";
-            DGVgmail.Size = new Size(633, 314);
-            DGVgmail.TabIndex = 0;
+            DGVGMAIL.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DGVGMAIL.Location = new Point(175, 89);
+            DGVGMAIL.Name = "DGVGMAIL";
+            DGVGMAIL.RowHeadersWidth = 51;
+            DGVGMAIL.Size = new Size(537, 314);
+            DGVGMAIL.TabIndex = 0;
             // 
-            // Form5
+            // FormGmail
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(820, 612);
-            Controls.Add(DGVgmail);
-            FormBorderStyle = FormBorderStyle.None;
-            Name = "Form5";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Historial Gmail";
-            ((System.ComponentModel.ISupportInitialize)DGVgmail).EndInit();
+            ClientSize = new Size(901, 717);
+            Controls.Add(DGVGMAIL);
+            Name = "FormGmail";
+            Text = "FormGmail";
+            Load += FormGmail_Load;
+            ((System.ComponentModel.ISupportInitialize)DGVGMAIL).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private DataGridView DGVgmail;
+        private DataGridView DGVGMAIL;
     }
 }

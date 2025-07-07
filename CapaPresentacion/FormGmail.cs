@@ -13,17 +13,12 @@ using Microsoft.Data.SqlClient;
 
 namespace CapaPresentacion
 {
-    public partial class Form5 : Form
+    public partial class FormGmail : Form
     {
-        public Form5()
+        public FormGmail()
         {
             InitializeComponent();
-
-        }
-
-        private void Form5_Load(object sender, EventArgs e)
-        {
-            CargarHistorialGmail();
+        
         }
 
         private void CargarHistorialGmail()
@@ -36,7 +31,7 @@ namespace CapaPresentacion
                 {
                     conn.Open();
 
-                    string query = @"SELECT Id, Destinatario, Asunto, CuerpoMensaje, FechaEnvio
+                    string query = @"SELECT Id, Destinatario, CuerpoMensaje, FechaEnvio
                              FROM MENSAJES
                              WHERE TipoMensaje = 'Gmail'";
 
@@ -44,7 +39,7 @@ namespace CapaPresentacion
                     DataTable tabla = new DataTable();
                     adaptador.Fill(tabla);
 
-                    DGVgmail.DataSource = tabla;
+                    DGVGMAIL.DataSource = tabla;
                 }
             }
             catch (SqlException ex)
@@ -57,6 +52,11 @@ namespace CapaPresentacion
             }
 
 
+        }
+    
+        private void FormGmail_Load(object sender, EventArgs e)
+        {
+            CargarHistorialGmail();
         }
     }
 }

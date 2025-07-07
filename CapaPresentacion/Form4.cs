@@ -80,7 +80,7 @@ namespace CapaPresentacion
         private void BTNhistorialGmail_Click(object sender, EventArgs e)
         {
             SubmenuHistorial.Visible = false; // Oculta el submenú de historial al hacer clic en el botón
-            AbrirFormHija(new Form5()); // Abre el formulario de Gmail al hacer clic en el botón
+            AbrirFormHija(new FormGmail()); // Abre el formulario de Gmail al hacer clic en el botón
         }
 
         private void AbrirFormHija(object formhija)
