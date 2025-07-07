@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace CapaPresentacion
         public Form5()
         {
             InitializeComponent();
+
         }
 
         private void Form5_Load(object sender, EventArgs e)
@@ -53,7 +55,8 @@ namespace CapaPresentacion
             {
                 MessageBox.Show($"Error inesperado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
 
+
+        }
     }
 }

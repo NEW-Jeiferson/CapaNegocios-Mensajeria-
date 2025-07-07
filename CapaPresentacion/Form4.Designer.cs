@@ -126,7 +126,7 @@
             // 
             // MenuVertical
             // 
-            MenuVertical.BackColor = Color.FromArgb(26, 32, 40);
+            MenuVertical.BackColor = Color.Black;
             MenuVertical.Controls.Add(panel3);
             MenuVertical.Controls.Add(BTNhistorial);
             MenuVertical.Controls.Add(SubmenuHistorial);
@@ -151,7 +151,7 @@
             // 
             // BTNhistorial
             // 
-            BTNhistorial.BackColor = Color.FromArgb(26, 32, 40);
+            BTNhistorial.BackColor = Color.Black;
             BTNhistorial.Cursor = Cursors.Hand;
             BTNhistorial.FlatAppearance.BorderSize = 0;
             BTNhistorial.FlatAppearance.MouseOverBackColor = Color.FromArgb(4, 106, 56);
@@ -180,7 +180,7 @@
             // 
             // BTNhistorialGmail
             // 
-            BTNhistorialGmail.BackColor = Color.FromArgb(26, 32, 40);
+            BTNhistorialGmail.BackColor = Color.Black;
             BTNhistorialGmail.Cursor = Cursors.Hand;
             BTNhistorialGmail.FlatAppearance.BorderSize = 0;
             BTNhistorialGmail.FlatAppearance.MouseOverBackColor = Color.FromArgb(4, 106, 56);
@@ -198,7 +198,7 @@
             // 
             // BTNhitorialTelegram
             // 
-            BTNhitorialTelegram.BackColor = Color.FromArgb(26, 32, 40);
+            BTNhitorialTelegram.BackColor = Color.Black;
             BTNhitorialTelegram.Cursor = Cursors.Hand;
             BTNhitorialTelegram.FlatAppearance.BorderSize = 0;
             BTNhitorialTelegram.FlatAppearance.MouseOverBackColor = Color.FromArgb(4, 106, 56);
@@ -224,7 +224,7 @@
             // 
             // BTNgmail
             // 
-            BTNgmail.BackColor = Color.FromArgb(26, 32, 40);
+            BTNgmail.BackColor = Color.Black;
             BTNgmail.Cursor = Cursors.Hand;
             BTNgmail.FlatAppearance.BorderSize = 0;
             BTNgmail.FlatAppearance.MouseOverBackColor = Color.FromArgb(4, 106, 56);
@@ -251,7 +251,7 @@
             // 
             // BTNtelegram
             // 
-            BTNtelegram.BackColor = Color.FromArgb(26, 32, 40);
+            BTNtelegram.BackColor = Color.Black;
             BTNtelegram.Cursor = Cursors.Hand;
             BTNtelegram.FlatAppearance.BorderSize = 0;
             BTNtelegram.FlatAppearance.MouseOverBackColor = Color.FromArgb(4, 106, 56);

@@ -14,6 +14,7 @@ namespace CapaPresentacion
 {
     public partial class Form2 : Form
     {
+
         public Form2()
         {
             InitializeComponent();
@@ -53,7 +54,6 @@ namespace CapaPresentacion
             {
                 MessageBox.Show($"Error inesperado: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
 
         }
     }
