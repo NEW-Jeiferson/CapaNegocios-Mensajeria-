@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DGVgmail = new DataGridView();
             BTNeliminar = new Button();
             TPLeliminar = new ToolTip(components);
@@ -44,14 +44,14 @@
             DGVgmail.BorderStyle = BorderStyle.None;
             DGVgmail.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             DGVgmail.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(4, 106, 56);
-            dataGridViewCellStyle4.Font = new Font("Perpetua", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(4, 106, 56);
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            DGVgmail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(4, 106, 56);
+            dataGridViewCellStyle1.Font = new Font("Perpetua", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(4, 106, 56);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            DGVgmail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             DGVgmail.ColumnHeadersHeight = 40;
             DGVgmail.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             DGVgmail.Cursor = Cursors.Hand;
@@ -61,27 +61,28 @@
             DGVgmail.Margin = new Padding(3, 2, 3, 2);
             DGVgmail.Name = "DGVgmail";
             DGVgmail.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(218, 41, 28);
-            dataGridViewCellStyle5.Font = new Font("Times New Roman", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(4, 106, 56);
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            DGVgmail.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(218, 41, 28);
+            dataGridViewCellStyle2.Font = new Font("Times New Roman", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(4, 106, 56);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            DGVgmail.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             DGVgmail.RowHeadersVisible = false;
             DGVgmail.RowHeadersWidth = 40;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Times New Roman", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(4, 106, 56);
-            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
-            DGVgmail.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Times New Roman", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(4, 106, 56);
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            DGVgmail.RowsDefaultCellStyle = dataGridViewCellStyle3;
             DGVgmail.Size = new Size(500, 320);
             DGVgmail.TabIndex = 0;
             // 
             // BTNeliminar
             // 
+            BTNeliminar.Cursor = Cursors.Hand;
             BTNeliminar.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
             BTNeliminar.Location = new Point(348, 467);
             BTNeliminar.Name = "BTNeliminar";
@@ -90,6 +91,7 @@
             BTNeliminar.Text = "Eliminar Mensaje";
             TPLeliminar.SetToolTip(BTNeliminar, "Click para eliminar el mensaje de la base de datos");
             BTNeliminar.UseVisualStyleBackColor = true;
+            BTNeliminar.Click += BTNeliminar_Click;
             // 
             // FormHistorialGmail
             // 
