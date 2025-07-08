@@ -32,12 +32,13 @@
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DGVtelegram = new DataGridView();
+            BTNeliminarTelegram = new Button();
             ((System.ComponentModel.ISupportInitialize)DGVtelegram).BeginInit();
             SuspendLayout();
             // 
             // DGVtelegram
             // 
-            DGVtelegram.BackgroundColor = Color.Purple;
+            DGVtelegram.BackgroundColor = Color.LavenderBlush;
             DGVtelegram.BorderStyle = BorderStyle.None;
             DGVtelegram.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             DGVtelegram.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -51,9 +52,10 @@
             DGVtelegram.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             DGVtelegram.ColumnHeadersHeight = 30;
             DGVtelegram.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            DGVtelegram.Cursor = Cursors.Hand;
             DGVtelegram.EnableHeadersVisualStyles = false;
             DGVtelegram.GridColor = Color.Black;
-            DGVtelegram.Location = new Point(201, 127);
+            DGVtelegram.Location = new Point(130, 124);
             DGVtelegram.Name = "DGVtelegram";
             DGVtelegram.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -72,19 +74,30 @@
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(218, 41, 28);
             dataGridViewCellStyle3.SelectionForeColor = Color.Black;
             DGVtelegram.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            DGVtelegram.Size = new Size(403, 320);
+            DGVtelegram.Size = new Size(550, 320);
             DGVtelegram.TabIndex = 0;
+            // 
+            // BTNeliminarTelegram
+            // 
+            BTNeliminarTelegram.Location = new Point(362, 472);
+            BTNeliminarTelegram.Name = "BTNeliminarTelegram";
+            BTNeliminarTelegram.Size = new Size(112, 23);
+            BTNeliminarTelegram.TabIndex = 1;
+            BTNeliminarTelegram.Text = "Eliminar Mensaje";
+            BTNeliminarTelegram.UseVisualStyleBackColor = true;
+            BTNeliminarTelegram.Click += BTNeliminarTelegram_Click;
             // 
             // FormHistorialTelegram
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DarkMagenta;
+            BackColor = Color.White;
             ClientSize = new Size(804, 573);
+            Controls.Add(BTNeliminarTelegram);
             Controls.Add(DGVtelegram);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormHistorialTelegram";
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.Manual;
             Text = "Historial Telegram";
             Load += Form2_Load;
             ((System.ComponentModel.ISupportInitialize)DGVtelegram).EndInit();
@@ -94,5 +107,6 @@
         #endregion
 
         private DataGridView DGVtelegram;
+        private Button BTNeliminarTelegram;
     }
 }

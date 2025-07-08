@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPresentacion));
             BarraTitulo = new Panel();
-            BTNrestaurar = new PictureBox();
-            BTNmaximizar = new PictureBox();
             BTNminimizar = new PictureBox();
             BTNcerrar = new PictureBox();
             MenuVertical = new Panel();
@@ -47,8 +45,6 @@
             BTNinicio = new PictureBox();
             panelContenedor = new Panel();
             BarraTitulo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)BTNrestaurar).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)BTNmaximizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BTNminimizar).BeginInit();
             ((System.ComponentModel.ISupportInitialize)BTNcerrar).BeginInit();
             MenuVertical.SuspendLayout();
@@ -59,8 +55,6 @@
             // BarraTitulo
             // 
             BarraTitulo.BackColor = Color.FromArgb(218, 41, 28);
-            BarraTitulo.Controls.Add(BTNrestaurar);
-            BarraTitulo.Controls.Add(BTNmaximizar);
             BarraTitulo.Controls.Add(BTNminimizar);
             BarraTitulo.Controls.Add(BTNcerrar);
             BarraTitulo.Cursor = Cursors.Hand;
@@ -71,39 +65,12 @@
             BarraTitulo.TabIndex = 0;
             BarraTitulo.MouseDown += BarraTitulo_MouseDown;
             // 
-            // BTNrestaurar
-            // 
-            BTNrestaurar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BTNrestaurar.Cursor = Cursors.Hand;
-            BTNrestaurar.Image = Properties.Resources.icons8_double_up_50;
-            BTNrestaurar.Location = new Point(930, 8);
-            BTNrestaurar.Name = "BTNrestaurar";
-            BTNrestaurar.Size = new Size(24, 24);
-            BTNrestaurar.SizeMode = PictureBoxSizeMode.Zoom;
-            BTNrestaurar.TabIndex = 2;
-            BTNrestaurar.TabStop = false;
-            BTNrestaurar.Visible = false;
-            BTNrestaurar.Click += BTNrestaurar_Click;
-            // 
-            // BTNmaximizar
-            // 
-            BTNmaximizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            BTNmaximizar.Cursor = Cursors.Hand;
-            BTNmaximizar.Image = Properties.Resources.icons8_full_screen_50;
-            BTNmaximizar.Location = new Point(930, 8);
-            BTNmaximizar.Name = "BTNmaximizar";
-            BTNmaximizar.Size = new Size(24, 24);
-            BTNmaximizar.SizeMode = PictureBoxSizeMode.Zoom;
-            BTNmaximizar.TabIndex = 0;
-            BTNmaximizar.TabStop = false;
-            BTNmaximizar.Click += BTNmaximizar_Click;
-            // 
             // BTNminimizar
             // 
             BTNminimizar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             BTNminimizar.Cursor = Cursors.Hand;
             BTNminimizar.Image = Properties.Resources.icons8_minimize_window_50;
-            BTNminimizar.Location = new Point(894, 8);
+            BTNminimizar.Location = new Point(926, 8);
             BTNminimizar.Name = "BTNminimizar";
             BTNminimizar.Size = new Size(24, 24);
             BTNminimizar.SizeMode = PictureBoxSizeMode.Zoom;
@@ -270,6 +237,7 @@
             // 
             // BTNinicio
             // 
+            BTNinicio.Cursor = Cursors.Hand;
             BTNinicio.Image = (Image)resources.GetObject("BTNinicio.Image");
             BTNinicio.Location = new Point(0, 0);
             BTNinicio.Name = "BTNinicio";
@@ -281,7 +249,7 @@
             // 
             // panelContenedor
             // 
-            panelContenedor.BackColor = Color.DarkMagenta;
+            panelContenedor.BackColor = Color.White;
             panelContenedor.Dock = DockStyle.Fill;
             panelContenedor.Location = new Point(180, 38);
             panelContenedor.Name = "panelContenedor";
@@ -301,8 +269,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form4";
             BarraTitulo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)BTNrestaurar).EndInit();
-            ((System.ComponentModel.ISupportInitialize)BTNmaximizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)BTNminimizar).EndInit();
             ((System.ComponentModel.ISupportInitialize)BTNcerrar).EndInit();
             MenuVertical.ResumeLayout(false);
@@ -318,8 +284,6 @@
         private Panel panelContenedor;
         private PictureBox BTNcerrar;
         private PictureBox BTNminimizar;
-        private PictureBox BTNmaximizar;
-        private PictureBox BTNrestaurar;
         private PictureBox BTNinicio;
         private Button BTNtelegram;
         private Panel panel1;

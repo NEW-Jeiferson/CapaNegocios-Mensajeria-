@@ -23,20 +23,6 @@ namespace CapaPresentacion
             Application.Exit(); // Cierra la aplicación al hacer clic en el botón de cerrar
         }
 
-        private void BTNmaximizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized; // Maximiza la ventana al hacer clic en el botón de maximizar
-            BTNmaximizar.Visible = false; // Oculta el botón de maximizar
-            BTNrestaurar.Visible = true; // Muestra el botón de restaurar
-        }
-
-        private void BTNrestaurar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Normal; // Restaura la ventana al estado normal
-            BTNrestaurar.Visible = false; // Oculta el botón de restaurar
-            BTNmaximizar.Visible = true; // Muestra el botón de maximizar
-        }
-
         private void BTNminimizar_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized; // Minimiza la ventana al hacer clic en el botón de minimizar

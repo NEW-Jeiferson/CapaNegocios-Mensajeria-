@@ -37,7 +37,7 @@
             // 
             // DGVgmail
             // 
-            DGVgmail.BackgroundColor = Color.Purple;
+            DGVgmail.BackgroundColor = Color.LavenderBlush;
             DGVgmail.BorderStyle = BorderStyle.None;
             DGVgmail.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             DGVgmail.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -51,6 +51,7 @@
             DGVgmail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             DGVgmail.ColumnHeadersHeight = 40;
             DGVgmail.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            DGVgmail.Cursor = Cursors.Hand;
             DGVgmail.EnableHeadersVisualStyles = false;
             DGVgmail.GridColor = Color.Black;
             DGVgmail.Location = new Point(152, 127);
@@ -80,13 +81,13 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DarkMagenta;
+            BackColor = Color.White;
             ClientSize = new Size(804, 573);
             Controls.Add(DGVgmail);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "FormHistorialGmail";
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.Manual;
             Text = "FormGmail";
             Load += FormGmail_Load;
             ((System.ComponentModel.ISupportInitialize)DGVgmail).EndInit();

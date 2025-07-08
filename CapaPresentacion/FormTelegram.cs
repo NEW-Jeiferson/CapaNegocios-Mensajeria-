@@ -75,13 +75,13 @@ namespace CapaPresentacion
 
             using OpenFileDialog dialogo = new OpenFileDialog();
             dialogo.Filter = "Archivos de imagen|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
-            dialogo.Multiselect = true;
-            dialogo.Title = "Selecciona una o más imágenes";
+            dialogo.Multiselect = false;
+            dialogo.Title = "Selecciona una imágen";
 
             if (dialogo.ShowDialog() == DialogResult.OK)
             {
-                rutasImagenes = dialogo.FileNames.ToList();
-                LBLfiles.Text = string.Join(", ", rutasImagenes.Select(Path.GetFileName));
+                rutasImagenes = new List<string> { dialogo.FileName }; //TODO : Almacena la ruta de la imagen seleccionada
+                LBLfiles.Text = Path.GetFileName(dialogo.FileName);
             }
         }
 

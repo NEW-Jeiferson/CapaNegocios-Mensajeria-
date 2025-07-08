@@ -18,8 +18,10 @@ namespace CapaNegocios
         private static string? _botToken;
         private static TelegramBotClient? _botClient;
         public List<string> RutasImagenes { get; set; } = new(); // Lista para almacenar múltiples rutas de imágenes
+        public int? TelegramMessageId { get; set; } // ID del mensaje enviado por Telegram
 
-        private static TelegramBotClient BotClientInstance
+
+        public static TelegramBotClient BotClientInstance
         {
             get
             {
@@ -52,73 +54,55 @@ namespace CapaNegocios
             var me = await BotClientInstance.GetMeAsync();
             Console.WriteLine($"Bot conectado como @{me.Username}");
 
-            var tieneImagenes = RutasImagenes.Any(ruta => System.IO.File.Exists(ruta)); //Investigar que es => 
+            var tieneImagenes = RutasImagenes.Any(ruta => System.IO.File.Exists(ruta)); // => es un lam
             var tieneTexto = !string.IsNullOrWhiteSpace(Contenido);
 
             //TODO Por diferentes Complicaciones Pondre que solo se pueden enviar imagen si hay texto
             if (!tieneTexto)
                 throw new InvalidOperationException("Debes ingresar un mensaje de texto para enviar.");
 
-            //TODO Cuando es solo un texto sin imagen
-            if (!tieneImagenes)
+            //TODO : Filtra las rutas de imágenes válidas
+            var rutasValidas = RutasImagenes
+            .Where(ruta => System.IO.File.Exists(ruta))
+            .ToList();
+
+
+            //TODO : Cuando es solo un texto sin imagen
+            if (rutasValidas.Count == 0)
             {
-                await BotClientInstance.SendTextMessageAsync(
+                //Solo texto
+                var sentMessage = await BotClientInstance.SendTextMessageAsync(
                     chatId: chatId,
                     text: Contenido,
                     parseMode: ParseMode.Html
                 );
+
+                TelegramMessageId = sentMessage.MessageId;
                 Console.WriteLine($"Mensaje de texto enviado a {chatId}");
                 return;
             }
 
-            //TODO Cuando tenemos Texto e Imágenes
-            var rutasValidas = RutasImagenes.Where(r => System.IO.File.Exists(r)).ToList();
-            var fileStreams = new List<FileStream>();
-
-            try
+            //TODO : Cuando es una imagen con texto
+            if (rutasValidas.Count == 1)
             {
-                //TODO Si solo hay una imagen
-                if (rutasValidas.Count == 1)
-                {
-                    using var stream = System.IO.File.OpenRead(rutasValidas[0]);
-                    var file = new InputFileStream(stream, Path.GetFileName(rutasValidas[0]));
+                //Solo una imagen + texto
+                using var stream = System.IO.File.OpenRead(rutasValidas[0]);
+                var file = InputFile.FromStream(stream, Path.GetFileName(rutasValidas[0]));
 
-                    await BotClientInstance.SendPhotoAsync(
-                        chatId: chatId,
-                        photo: file,
-                        caption: Contenido,
-                        parseMode: ParseMode.Html
-                    );
-                    Console.WriteLine("Imagen + texto enviado.");
-                    return;
-                }
+                var sentPhotoMessage = await BotClientInstance.SendPhotoAsync(
+                    chatId: chatId,
+                    photo: file,
+                    caption: Contenido,
+                    parseMode: ParseMode.Html
+                );
 
-                //TODO Si hay varias imágenes
-                var mediaGroup = new List<IAlbumInputMedia>();
-                for (int idx = 0; idx < rutasValidas.Count; idx++)
-                {
-                    var stream = System.IO.File.OpenRead(rutasValidas[idx]);
-                    fileStreams.Add(stream);
-
-                    var media = new InputMediaPhoto(new InputFileStream(stream, Path.GetFileName(rutasValidas[idx])));
-
-                    if (idx == 0) // Texto como caption solo en la primera imagen
-                    {
-                        media.Caption = Contenido;
-                        media.ParseMode = ParseMode.Html;
-                    }
-
-                    mediaGroup.Add(media);
-                }
-
-                await BotClientInstance.SendMediaGroupAsync(chatId, mediaGroup);
-                Console.WriteLine($"Álbum con {mediaGroup.Count} imágenes enviado.");
+                TelegramMessageId = sentPhotoMessage.MessageId;
+                Console.WriteLine("Imagen + texto enviado.");
+                return;
             }
-            finally
-            {
-                foreach (var stream in fileStreams) 
-                    stream.Dispose();
-            }
+
+            //TODO : Cuando son varias imagenes con texto
+            throw new InvalidOperationException("Solo se permite enviar una imagen como máximo.");
         }
 
         //Valida que el destinatario sea un ID numérico válido y que el contenido no esté vacío.

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTelegram));
             LBLtelegramChatId = new Label();
             LBLtelegramMensaje = new Label();
             BTNenviarMensaje = new Button();
@@ -45,6 +46,7 @@
             // LBLtelegramChatId
             // 
             LBLtelegramChatId.AutoSize = true;
+            LBLtelegramChatId.BackColor = Color.White;
             LBLtelegramChatId.Font = new Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
             LBLtelegramChatId.Location = new Point(100, 142);
             LBLtelegramChatId.Name = "LBLtelegramChatId";
@@ -141,7 +143,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DarkMagenta;
+            BackColor = Color.White;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(820, 612);
             Controls.Add(BTNlimpiarFotos);
             Controls.Add(LBLfiles);
@@ -153,7 +156,7 @@
             Controls.Add(LBLtelegramChatId);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormTelegram";
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.Manual;
             Text = "Telegram";
             Load += Form3_Load;
             ResumeLayout(false);

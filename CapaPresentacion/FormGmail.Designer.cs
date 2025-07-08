@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormGmail));
             LBLmensaje = new Label();
             LBLenviarA = new Label();
             LBLasunto = new Label();
@@ -150,7 +151,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Purple;
+            BackColor = Color.White;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(804, 573);
             Controls.Add(BTNadjuntar);
             Controls.Add(LBLfiles);
@@ -163,7 +165,7 @@
             Controls.Add(TXTenviarA);
             FormBorderStyle = FormBorderStyle.None;
             Name = "FormGmail";
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.Manual;
             Text = "Gmail";
             Load += Form1_Load;
             ResumeLayout(false);

@@ -18,8 +18,8 @@ namespace CapaNegocios
                 throw new ArgumentException("El mensaje no es válido (destinatario o contenido vacíos).");
             }
 
-            string query = @"INSERT INTO MENSAJES (Destinatario, Asunto, CuerpoMensaje, FechaEnvio, TipoMensaje)
-                             VALUES (@Destinatario, @Asunto, @CuerpoMensaje, @FechaEnvio, @TipoMensaje)";
+            string query = @"INSERT INTO MENSAJES (Destinatario, Asunto, CuerpoMensaje, FechaEnvio, TipoMensaje, TelegramMessageId)
+                             VALUES (@Destinatario, @Asunto, @CuerpoMensaje, @FechaEnvio, @TipoMensaje, @TelegramMessageId)";
 
             Mensajeriaconexion conexionDatos = new Mensajeriaconexion();
 
@@ -42,6 +42,7 @@ namespace CapaNegocios
                             command.Parameters.AddWithValue("@Asunto", DBNull.Value);
                         }
 
+
                         command.Parameters.AddWithValue("@CuerpoMensaje", mensaje.Contenido);
                         command.Parameters.AddWithValue("@FechaEnvio", mensaje.FechaEnvio);
 
@@ -54,6 +55,16 @@ namespace CapaNegocios
                         };
 
                         command.Parameters.AddWithValue("@TipoMensaje", tipoMensaje);
+
+                        //TODO : Manejo del ID del mensaje de Telegram
+                        int? telegramId = null;
+
+                        if (mensaje is Telegram t && t.TelegramMessageId.HasValue)
+                        {
+                            telegramId = t.TelegramMessageId.Value;
+                        }
+
+                        command.Parameters.AddWithValue("@TelegramMessageId", (object?)telegramId ?? DBNull.Value);
 
                         command.ExecuteNonQuery();
                     }

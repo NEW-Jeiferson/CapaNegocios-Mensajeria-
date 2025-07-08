@@ -63,6 +63,26 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fondo_telegram {
+            get {
+                object obj = ResourceManager.GetObject("fondo telegram", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gemini_Generated_Image_u1q0vnu1q0vnu1q0 {
+            get {
+                object obj = ResourceManager.GetObject("Gemini_Generated_Image_u1q0vnu1q0vnu1q0", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Goat_comm__1_ {
             get {
                 object obj = ResourceManager.GetObject("Goat comm (1)", resourceCulture);
