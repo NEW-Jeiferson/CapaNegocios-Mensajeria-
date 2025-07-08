@@ -17,8 +17,8 @@ namespace CapaNegocios
     {
         private static string? _botToken;
         private static TelegramBotClient? _botClient;
-        public List<string> RutasImagenes { get; set; } = new(); // Lista para almacenar múltiples rutas de imágenes
-        public int? TelegramMessageId { get; set; } // ID del mensaje enviado por Telegram
+        public List<string> RutasImagenes { get; set; } = new(); //Lista para almacenar múltiples rutas de imágenes
+        public int? TelegramMessageId { get; set; } //ID del mensaje enviado por Telegram
 
 
         public static TelegramBotClient BotClientInstance
@@ -85,7 +85,7 @@ namespace CapaNegocios
             //TODO : Cuando es una imagen con texto
             if (rutasValidas.Count == 1)
             {
-                //Solo una imagen + texto
+                //Solo una imagen y texto
                 using var stream = System.IO.File.OpenRead(rutasValidas[0]);
                 var file = InputFile.FromStream(stream, Path.GetFileName(rutasValidas[0]));
 
@@ -97,7 +97,7 @@ namespace CapaNegocios
                 );
 
                 TelegramMessageId = sentPhotoMessage.MessageId;
-                Console.WriteLine("Imagen + texto enviado.");
+                Console.WriteLine("Imagen y texto enviado.");
                 return;
             }
 

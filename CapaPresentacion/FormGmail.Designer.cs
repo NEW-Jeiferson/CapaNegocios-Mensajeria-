@@ -56,6 +56,7 @@
             // LBLenviarA
             // 
             LBLenviarA.AutoSize = true;
+            LBLenviarA.BackColor = Color.White;
             LBLenviarA.Font = new Font("Times New Roman", 14.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
             LBLenviarA.Location = new Point(177, 76);
             LBLenviarA.Name = "LBLenviarA";

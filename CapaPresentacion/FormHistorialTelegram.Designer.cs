@@ -28,17 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DGVtelegram = new DataGridView();
             BTNeliminarTelegram = new Button();
+            TLeliminar = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)DGVtelegram).BeginInit();
             SuspendLayout();
             // 
             // DGVtelegram
             // 
-            DGVtelegram.BackgroundColor = Color.LavenderBlush;
+            DGVtelegram.BackgroundColor = Color.AliceBlue;
             DGVtelegram.BorderStyle = BorderStyle.None;
             DGVtelegram.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             DGVtelegram.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -55,7 +57,7 @@
             DGVtelegram.Cursor = Cursors.Hand;
             DGVtelegram.EnableHeadersVisualStyles = false;
             DGVtelegram.GridColor = Color.Black;
-            DGVtelegram.Location = new Point(130, 124);
+            DGVtelegram.Location = new Point(130, 118);
             DGVtelegram.Name = "DGVtelegram";
             DGVtelegram.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -80,11 +82,12 @@
             // BTNeliminarTelegram
             // 
             BTNeliminarTelegram.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            BTNeliminarTelegram.Location = new Point(362, 472);
+            BTNeliminarTelegram.Location = new Point(348, 470);
             BTNeliminarTelegram.Name = "BTNeliminarTelegram";
             BTNeliminarTelegram.Size = new Size(112, 23);
             BTNeliminarTelegram.TabIndex = 1;
             BTNeliminarTelegram.Text = "Eliminar Mensaje";
+            TLeliminar.SetToolTip(BTNeliminarTelegram, "Click para eliminar el mensaje de la base de datos y de telegram\r\n\r\n");
             BTNeliminarTelegram.UseVisualStyleBackColor = true;
             BTNeliminarTelegram.Click += BTNeliminarTelegram_Click;
             // 
@@ -109,5 +112,6 @@
 
         private DataGridView DGVtelegram;
         private Button BTNeliminarTelegram;
+        private ToolTip TLeliminar;
     }
 }
