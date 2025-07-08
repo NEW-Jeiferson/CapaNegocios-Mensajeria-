@@ -79,6 +79,7 @@
             // 
             // BTNeliminarTelegram
             // 
+            BTNeliminarTelegram.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
             BTNeliminarTelegram.Location = new Point(362, 472);
             BTNeliminarTelegram.Name = "BTNeliminarTelegram";
             BTNeliminarTelegram.Size = new Size(112, 23);
