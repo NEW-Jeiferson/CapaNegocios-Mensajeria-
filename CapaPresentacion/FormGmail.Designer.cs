@@ -99,7 +99,7 @@
             // 
             BTNenviarguardar.BackColor = Color.White;
             BTNenviarguardar.Cursor = Cursors.Hand;
-            BTNenviarguardar.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            BTNenviarguardar.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             BTNenviarguardar.Location = new Point(357, 384);
             BTNenviarguardar.Name = "BTNenviarguardar";
             BTNenviarguardar.Size = new Size(100, 23);
@@ -125,7 +125,7 @@
             // 
             LBLfiles.AutoSize = true;
             LBLfiles.BackColor = Color.White;
-            LBLfiles.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            LBLfiles.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             LBLfiles.Location = new Point(357, 439);
             LBLfiles.Name = "LBLfiles";
             LBLfiles.Size = new Size(16, 15);
@@ -136,7 +136,7 @@
             // 
             BTNadjuntar.BackColor = Color.White;
             BTNadjuntar.Cursor = Cursors.Hand;
-            BTNadjuntar.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            BTNadjuntar.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             BTNadjuntar.Location = new Point(348, 413);
             BTNadjuntar.Name = "BTNadjuntar";
             BTNadjuntar.Size = new Size(119, 23);
@@ -150,7 +150,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.AliceBlue;
+            BackColor = Color.Purple;
             ClientSize = new Size(804, 573);
             Controls.Add(BTNadjuntar);
             Controls.Add(LBLfiles);

@@ -28,25 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DGVgmail = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)DGVgmail).BeginInit();
             SuspendLayout();
             // 
             // DGVgmail
             // 
-            DGVgmail.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DGVgmail.Location = new Point(127, 127);
+            DGVgmail.BackgroundColor = Color.Purple;
+            DGVgmail.BorderStyle = BorderStyle.None;
+            DGVgmail.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            DGVgmail.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(4, 106, 56);
+            dataGridViewCellStyle1.Font = new Font("Perpetua", 11.25F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(4, 106, 56);
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            DGVgmail.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            DGVgmail.ColumnHeadersHeight = 40;
+            DGVgmail.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            DGVgmail.EnableHeadersVisualStyles = false;
+            DGVgmail.GridColor = Color.Black;
+            DGVgmail.Location = new Point(152, 127);
             DGVgmail.Margin = new Padding(3, 2, 3, 2);
             DGVgmail.Name = "DGVgmail";
-            DGVgmail.RowHeadersWidth = 51;
-            DGVgmail.Size = new Size(550, 320);
+            DGVgmail.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(218, 41, 28);
+            dataGridViewCellStyle2.Font = new Font("Times New Roman", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(4, 106, 56);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            DGVgmail.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            DGVgmail.RowHeadersVisible = false;
+            DGVgmail.RowHeadersWidth = 40;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Times New Roman", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(4, 106, 56);
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            DGVgmail.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            DGVgmail.Size = new Size(500, 320);
             DGVgmail.TabIndex = 0;
             // 
             // FormHistorialGmail
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.AliceBlue;
+            BackColor = Color.DarkMagenta;
             ClientSize = new Size(804, 573);
             Controls.Add(DGVgmail);
             FormBorderStyle = FormBorderStyle.None;

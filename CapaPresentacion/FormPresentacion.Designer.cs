@@ -281,7 +281,7 @@
             // 
             // panelContenedor
             // 
-            panelContenedor.BackColor = Color.AliceBlue;
+            panelContenedor.BackColor = Color.DarkMagenta;
             panelContenedor.Dock = DockStyle.Fill;
             panelContenedor.Location = new Point(180, 38);
             panelContenedor.Name = "panelContenedor";

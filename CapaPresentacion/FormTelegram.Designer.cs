@@ -66,7 +66,7 @@
             // 
             BTNenviarMensaje.BackColor = Color.White;
             BTNenviarMensaje.Cursor = Cursors.Hand;
-            BTNenviarMensaje.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            BTNenviarMensaje.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             BTNenviarMensaje.Location = new Point(356, 384);
             BTNenviarMensaje.Name = "BTNenviarMensaje";
             BTNenviarMensaje.Size = new Size(103, 23);
@@ -101,7 +101,7 @@
             // 
             BTNadjuntar.BackColor = Color.White;
             BTNadjuntar.Cursor = Cursors.Hand;
-            BTNadjuntar.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            BTNadjuntar.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             BTNadjuntar.Location = new Point(356, 427);
             BTNadjuntar.Name = "BTNadjuntar";
             BTNadjuntar.RightToLeft = RightToLeft.Yes;
@@ -116,7 +116,7 @@
             // 
             LBLfiles.AutoSize = true;
             LBLfiles.BackColor = Color.White;
-            LBLfiles.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            LBLfiles.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             LBLfiles.Location = new Point(356, 453);
             LBLfiles.Name = "LBLfiles";
             LBLfiles.Size = new Size(16, 15);
@@ -127,7 +127,7 @@
             // 
             BTNlimpiarFotos.BackColor = Color.White;
             BTNlimpiarFotos.Cursor = Cursors.Hand;
-            BTNlimpiarFotos.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            BTNlimpiarFotos.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             BTNlimpiarFotos.Location = new Point(345, 480);
             BTNlimpiarFotos.Name = "BTNlimpiarFotos";
             BTNlimpiarFotos.Size = new Size(128, 23);
@@ -141,7 +141,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.AliceBlue;
+            BackColor = Color.DarkMagenta;
             ClientSize = new Size(820, 612);
             Controls.Add(BTNlimpiarFotos);
             Controls.Add(LBLfiles);
