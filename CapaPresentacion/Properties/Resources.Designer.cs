@@ -63,6 +63,16 @@ namespace CapaPresentacion.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Captura_de_pantalla_2025_07_08_221359 {
+            get {
+                object obj = ResourceManager.GetObject("Captura de pantalla 2025-07-08 221359", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fondo_telegram {
             get {
                 object obj = ResourceManager.GetObject("fondo telegram", resourceCulture);
@@ -86,6 +96,16 @@ namespace CapaPresentacion.Properties {
         internal static System.Drawing.Bitmap Goat_comm__1_ {
             get {
                 object obj = ResourceManager.GetObject("Goat comm (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Goat_comm__1_1 {
+            get {
+                object obj = ResourceManager.GetObject("Goat comm (1)1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -97,6 +97,5 @@ namespace CapaPresentacion
         {
             AbrirFormHija(new Inicio()); // Abre el formulario principal al hacer clic en el botón
         }
-
     }
 }

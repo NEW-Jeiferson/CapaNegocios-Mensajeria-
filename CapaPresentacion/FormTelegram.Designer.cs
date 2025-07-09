@@ -58,7 +58,7 @@
             // 
             LBLtelegramMensaje.AutoSize = true;
             LBLtelegramMensaje.Font = new Font("Times New Roman", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            LBLtelegramMensaje.Location = new Point(141, 196);
+            LBLtelegramMensaje.Location = new Point(141, 215);
             LBLtelegramMensaje.Name = "LBLtelegramMensaje";
             LBLtelegramMensaje.Size = new Size(63, 19);
             LBLtelegramMensaje.TabIndex = 1;
@@ -69,7 +69,7 @@
             BTNenviarMensaje.BackColor = Color.White;
             BTNenviarMensaje.Cursor = Cursors.Hand;
             BTNenviarMensaje.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            BTNenviarMensaje.Location = new Point(356, 384);
+            BTNenviarMensaje.Location = new Point(356, 403);
             BTNenviarMensaje.Name = "BTNenviarMensaje";
             BTNenviarMensaje.Size = new Size(103, 23);
             BTNenviarMensaje.TabIndex = 2;
@@ -82,7 +82,7 @@
             // 
             TXTtelegramChatId.BackColor = Color.White;
             TXTtelegramChatId.Font = new Font("Trebuchet MS", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            TXTtelegramChatId.Location = new Point(284, 140);
+            TXTtelegramChatId.Location = new Point(288, 142);
             TXTtelegramChatId.Name = "TXTtelegramChatId";
             TXTtelegramChatId.Size = new Size(236, 21);
             TXTtelegramChatId.TabIndex = 4;
@@ -92,7 +92,7 @@
             // 
             TXTmensajeTelegram.BackColor = Color.White;
             TXTmensajeTelegram.Font = new Font("Trebuchet MS", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            TXTmensajeTelegram.Location = new Point(257, 196);
+            TXTmensajeTelegram.Location = new Point(265, 215);
             TXTmensajeTelegram.Multiline = true;
             TXTmensajeTelegram.Name = "TXTmensajeTelegram";
             TXTmensajeTelegram.ScrollBars = ScrollBars.Vertical;
@@ -104,7 +104,7 @@
             BTNadjuntar.BackColor = Color.White;
             BTNadjuntar.Cursor = Cursors.Hand;
             BTNadjuntar.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            BTNadjuntar.Location = new Point(356, 427);
+            BTNadjuntar.Location = new Point(356, 440);
             BTNadjuntar.Name = "BTNadjuntar";
             BTNadjuntar.RightToLeft = RightToLeft.Yes;
             BTNadjuntar.Size = new Size(103, 23);
@@ -119,7 +119,7 @@
             LBLfiles.AutoSize = true;
             LBLfiles.BackColor = Color.White;
             LBLfiles.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            LBLfiles.Location = new Point(356, 453);
+            LBLfiles.Location = new Point(356, 466);
             LBLfiles.Name = "LBLfiles";
             LBLfiles.Size = new Size(16, 15);
             LBLfiles.TabIndex = 9;
@@ -130,7 +130,7 @@
             BTNlimpiarFotos.BackColor = Color.White;
             BTNlimpiarFotos.Cursor = Cursors.Hand;
             BTNlimpiarFotos.Font = new Font("Times New Roman", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            BTNlimpiarFotos.Location = new Point(345, 480);
+            BTNlimpiarFotos.Location = new Point(345, 505);
             BTNlimpiarFotos.Name = "BTNlimpiarFotos";
             BTNlimpiarFotos.Size = new Size(128, 23);
             BTNlimpiarFotos.TabIndex = 11;

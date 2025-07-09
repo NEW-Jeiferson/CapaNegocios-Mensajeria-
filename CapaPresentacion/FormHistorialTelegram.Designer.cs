@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DGVtelegram = new DataGridView();
             BTNeliminarTelegram = new Button();
             TLeliminar = new ToolTip(components);
@@ -40,42 +40,42 @@
             // 
             // DGVtelegram
             // 
-            DGVtelegram.BackgroundColor = Color.AliceBlue;
+            DGVtelegram.BackgroundColor = Color.WhiteSmoke;
             DGVtelegram.BorderStyle = BorderStyle.None;
             DGVtelegram.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             DGVtelegram.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(218, 41, 28);
-            dataGridViewCellStyle1.Font = new Font("Perpetua", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(218, 41, 28);
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            DGVtelegram.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(218, 41, 28);
+            dataGridViewCellStyle4.Font = new Font("Perpetua", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(218, 41, 28);
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            DGVtelegram.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             DGVtelegram.ColumnHeadersHeight = 30;
             DGVtelegram.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             DGVtelegram.Cursor = Cursors.Hand;
             DGVtelegram.EnableHeadersVisualStyles = false;
             DGVtelegram.GridColor = Color.Black;
-            DGVtelegram.Location = new Point(130, 118);
+            DGVtelegram.Location = new Point(135, 146);
             DGVtelegram.Name = "DGVtelegram";
             DGVtelegram.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(4, 106, 56);
-            dataGridViewCellStyle2.Font = new Font("Times New Roman", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(218, 41, 28);
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            DGVtelegram.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(4, 106, 56);
+            dataGridViewCellStyle5.Font = new Font("Times New Roman", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(218, 41, 28);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            DGVtelegram.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             DGVtelegram.RowHeadersVisible = false;
             DGVtelegram.RowHeadersWidth = 40;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Times New Roman", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(218, 41, 28);
-            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-            DGVtelegram.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.BackColor = Color.White;
+            dataGridViewCellStyle6.Font = new Font("Times New Roman", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(218, 41, 28);
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            DGVtelegram.RowsDefaultCellStyle = dataGridViewCellStyle6;
             DGVtelegram.Size = new Size(550, 320);
             DGVtelegram.TabIndex = 0;
             // 
@@ -83,7 +83,7 @@
             // 
             BTNeliminarTelegram.Cursor = Cursors.Hand;
             BTNeliminarTelegram.Font = new Font("Times New Roman", 9F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            BTNeliminarTelegram.Location = new Point(348, 470);
+            BTNeliminarTelegram.Location = new Point(377, 472);
             BTNeliminarTelegram.Name = "BTNeliminarTelegram";
             BTNeliminarTelegram.Size = new Size(112, 23);
             BTNeliminarTelegram.TabIndex = 1;
@@ -96,8 +96,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(804, 573);
+            BackColor = Color.Gainsboro;
+            ClientSize = new Size(820, 612);
             Controls.Add(BTNeliminarTelegram);
             Controls.Add(DGVtelegram);
             FormBorderStyle = FormBorderStyle.None;

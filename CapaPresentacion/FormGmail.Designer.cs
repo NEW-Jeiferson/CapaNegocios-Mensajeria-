@@ -154,7 +154,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(804, 573);
+            ClientSize = new Size(820, 612);
             Controls.Add(BTNadjuntar);
             Controls.Add(LBLfiles);
             Controls.Add(TXTmensaje);

@@ -16,5 +16,10 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
+
+        private void horafecha_Tick(object sender, EventArgs e)
+        {
+            LBLhora.Text = DateTime.Now.ToString("HH:mm:ss"); //TODO : Muestra la hora actual en formato de 24 horas
+        }
     }
 }
