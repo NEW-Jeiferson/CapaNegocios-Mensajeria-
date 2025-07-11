@@ -54,13 +54,15 @@ namespace CapaPresentacion
                 return;
             }
 
-            
-            Gmail emailParaEnviar = new Gmail(
-             TXTenviarA.Text.Trim(),// Destinatario
-             TXTasunto.Text.Trim(), // Asunto
-             TXTmensaje.Text.Trim() // Contenido
-            );
-            emailParaEnviar.RutasAdjuntos = _rutasArchivosAdjuntos;
+            //TODO : Crear una instancia de Gmail con los datos ingresados
+            Gmail emailParaEnviar = new()
+            {
+                Destinatario = correo,
+                Asunto = TXTasunto.Text.Trim(),
+                CuerpoMensaje = TXTmensaje.Text.Trim(),
+                FechaEnvio = DateTime.Now,
+                RutasAdjuntos = _rutasArchivosAdjuntos
+            };
 
             try
             {
