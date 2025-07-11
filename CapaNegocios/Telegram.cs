@@ -54,7 +54,7 @@ namespace CapaNegocios
             var me = await BotClientInstance.GetMeAsync();
             Console.WriteLine($"Bot conectado como @{me.Username}");
 
-            var tieneImagenes = RutasImagenes.Any(ruta => System.IO.File.Exists(ruta)); // => es un lam
+            var tieneImagenes = RutasImagenes.Any(ruta => System.IO.File.Exists(ruta)); // => es un lambda
             var tieneTexto = !string.IsNullOrWhiteSpace(Contenido);
 
             //TODO Por diferentes Complicaciones Pondre que solo se pueden enviar imagen si hay texto

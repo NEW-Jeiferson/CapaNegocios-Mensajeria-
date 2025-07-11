@@ -24,6 +24,7 @@ namespace CapaPresentacion
 
         private void CargarHistorialGmail()
         {
+            //TODO : Cargar el historial de mensajes de Gmail desde la base de datos
             Mensajeriaconexion conexionDatos = new Mensajeriaconexion();
 
             try

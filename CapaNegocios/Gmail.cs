@@ -17,6 +17,16 @@ namespace CapaNegocios
         public string Asunto { get; set; } = string.Empty;
         public List<string> RutasAdjuntos { get; set; } = new List<string>();
 
+        //TODO : Constructor para inicializar un nuevo mensaje de Gmail
+        public Gmail(string destinatario, string asunto, string contenido)
+        {
+            this.Destinatario = destinatario;
+            this.Asunto = asunto;
+            this.Contenido = contenido;
+            this.FechaEnvio = DateTime.Now;
+            this.RutasAdjuntos = new List<string>();
+        }
+
         //Método estático para configurar las credenciales de Gmail
         public static void GuardarCredenciales(string senderEmail, string applicationPassword)
         {
